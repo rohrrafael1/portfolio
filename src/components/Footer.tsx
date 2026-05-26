@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="border-t border-zinc-200/60 bg-white/50 py-8 dark:border-zinc-800/60 dark:bg-black/20">
       <div className="mx-auto flex max-w-5xl flex-col gap-4 px-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm text-zinc-600 dark:text-zinc-400">
-          © {year} Rafael Rohr. Built with care for recruiters.
+          © {year} Rafael Rohr. Built for clarity, reliability, and measurable outcomes.
         </p>
 
         <div className="flex items-center gap-4 text-sm">

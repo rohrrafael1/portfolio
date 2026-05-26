@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rafael Rohr | Duke ECE | Quant & Tech",
+  title: "Rafael Rohr | Duke ECE",
   description:
-    "Rafael Rohr, Brazilian sophomore at Duke University studying Electrical & Computer Engineering. Quant, consulting, and tech-driven builder portfolio.",
+    "Brazilian rising junior at Duke studying Electrical & Computer Engineering (minors: Finance, Math). Builds reliable systems across secure software, hardware verification, and applied research.",
 };
 
 export default function RootLayout({

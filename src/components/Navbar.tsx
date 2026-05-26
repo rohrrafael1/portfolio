@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useId, useState } from "react";
 
 const navItems = [
   { href: "#about", label: "About" },
@@ -70,7 +70,8 @@ function IconMenu({ open }: { open: boolean }) {
 export function Navbar() {
   const [open, setOpen] = useState(false);
 
-  const menuId = useMemo(() => `nav-mobile-${Math.random().toString(16).slice(2)}`, []);
+  const reactId = useId();
+  const menuId = `nav-mobile-${reactId}`;
 
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-200/60 bg-white/75 backdrop-blur dark:border-zinc-800/60 dark:bg-black/60">
@@ -98,7 +99,7 @@ export function Navbar() {
         <div className="hidden items-center gap-3 md:flex">
           <a
             href="mailto:rafael.sersonrohr@duke.edu"
-            className="rounded-full border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-100 dark:border-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-900"
+            className="rounded-full border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-900 shadow-sm transition-colors hover:bg-zinc-50 dark:border-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-100"
           >
             Email
           </a>
@@ -140,7 +141,7 @@ export function Navbar() {
               <a
                 href="mailto:rafael.sersonrohr@duke.edu"
                 onClick={() => setOpen(false)}
-                className="rounded-full border border-zinc-200 px-4 py-2 text-center text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-100 dark:border-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-900"
+                className="rounded-full border border-zinc-200 bg-white px-4 py-2 text-center text-sm font-medium text-zinc-900 shadow-sm transition-colors hover:bg-zinc-50 dark:border-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-100"
               >
                 Email
               </a>

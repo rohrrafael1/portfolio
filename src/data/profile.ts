@@ -13,19 +13,19 @@ export type Profile = {
 
 export const profile: Profile = {
   name: "Rafael Rohr",
-  titleLine: "Duke University • Electrical & Computer Engineering",
+  titleLine: "Brazilian rising junior at Duke • Electrical & Computer Engineering",
   headline:
-    "Quant-minded builder at Duke—turning technical depth into decision-grade impact across fintech, hardware verification, and real-world systems.",
+    "I build reliable systems—secure software, hardware verification, and research that turns ambiguity into usable tools.",
   summary: [
-    "I’m a sophomore at Duke studying Electrical & Computer Engineering, with minors in Finance and Math. I like problems where measurement matters: performance, reliability, and end-user outcomes.",
-    "My experience spans secure fintech automation, hardware testing/verification, and embedded robotics. I write production-quality code and also build the systems that make hardware trustworthy.",
+    "I’m a rising junior at Duke studying Electrical & Computer Engineering (minors: Finance and Math). I’m result-driven and disciplined, and I communicate progress with honesty.",
+    "I care about reliability: performance that holds up in practice, verification that catches edge cases, and iterative engineering that keeps improving after the first version.",
   ],
-  interests: ["Quant", "Consulting", "Tech"],
+  interests: ["Systems reliability", "Hardware verification", "Applied research", "Finance & mathematics"],
   targetRoles: [
-    "Quant / Trading (internship or research)",
-    "Consulting Analytics (internship)",
-    "Software Engineering (product, data, or applied ML)",
-    "Embedded / Hardware Systems (reliability + performance)",
+    "Secure software engineering",
+    "Hardware verification & reliability",
+    "Embedded systems",
+    "Applied research & product discovery",
   ],
   location: "Durham, NC (USA)",
   email: "rafael.sersonrohr@duke.edu",

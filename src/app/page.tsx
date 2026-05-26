@@ -9,7 +9,7 @@ export default function Home() {
     <div className="bg-white dark:bg-black">
       <Hero />
 
-      <Section id="about" eyebrow="ABOUT" title="Recruiter-ready builder story">
+      <Section id="about" eyebrow="ABOUT" title="What you can expect">
         <div className="grid gap-8 md:grid-cols-2">
           <div className="space-y-4">
             <p className="text-base leading-7 text-zinc-700 dark:text-zinc-300">
@@ -22,21 +22,24 @@ export default function Home() {
 
           <div className="rounded-2xl border border-zinc-200/70 bg-white/70 p-6 shadow-sm backdrop-blur dark:border-zinc-800/70 dark:bg-black/20">
             <p className="text-sm font-semibold text-zinc-950 dark:text-zinc-50">
-              What I’m optimized for
+              Strengths that show up in my work
             </p>
             <ul className="mt-4 space-y-3 text-sm text-zinc-700 dark:text-zinc-300">
               <li>
-                <span className="font-semibold">Quant mindset:</span>{" "}
-                measuring outcomes, iterating fast, and building reliable
-                systems.
+                <span className="font-semibold">Result-driven delivery:</span>{" "}
+                measurable improvements, short feedback loops.
               </li>
               <li>
-                <span className="font-semibold">Consulting energy:</span>{" "}
-                turning ambiguous problems into crisp technical plans.
+                <span className="font-semibold">Disciplined engineering:</span>{" "}
+                verification-first and careful debugging.
               </li>
               <li>
-                <span className="font-semibold">Tech depth:</span> secure
-                product engineering and hardware verification.
+                <span className="font-semibold">Honest communication:</span>{" "}
+                clear tradeoffs and accurate status updates.
+              </li>
+              <li>
+                <span className="font-semibold">Relentless follow-through:</span>{" "}
+                ship, test, and refine until it holds up in practice.
               </li>
             </ul>
 
@@ -62,16 +65,16 @@ export default function Home() {
         <ProjectGrid projects={projects} />
       </Section>
 
-      <Section id="contact" eyebrow="CONTACT" title="Let’s build something that ships">
+      <Section id="contact" eyebrow="CONTACT" title="Let’s connect">
         <div className="grid gap-6 md:grid-cols-2">
           <div className="rounded-2xl border border-zinc-200/70 bg-white/70 p-6 shadow-sm backdrop-blur dark:border-zinc-800/70 dark:bg-black/20">
             <p className="text-sm font-semibold text-zinc-950 dark:text-zinc-50">
               Best way to reach me
             </p>
             <p className="mt-3 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
-              I respond quickly. If you’re hiring for quant, consulting analytics,
-              or applied software/hardware roles, send the details and I’ll
-              tailor my work to your needs.
+              I respond quickly. If you’re looking for a builder who delivers
+              reliable systems and communicates honestly, send the details and
+              I’ll tailor my work to the role.
             </p>
 
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -84,7 +87,7 @@ export default function Home() {
               <a
                 href={profile.resumePath}
                 download
-                className="inline-flex items-center justify-center rounded-full border border-zinc-200 px-6 py-2.5 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-100 dark:border-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-800"
+                className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white px-6 py-2.5 text-sm font-medium text-zinc-900 shadow-sm transition-colors hover:bg-zinc-50 dark:border-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-100"
               >
                 Download resume
               </a>
@@ -97,16 +100,16 @@ export default function Home() {
             </p>
             <div className="mt-4 space-y-3 text-sm text-zinc-700 dark:text-zinc-300">
               <p>
-                <span className="font-semibold">Quant & decision systems:</span>{" "}
-                applied ML workflows and performance measurement.
+                <span className="font-semibold">Performance & reliability:</span>{" "}
+                measurement, verification, and iterative improvements.
               </p>
               <p>
                 <span className="font-semibold">Hardware reliability:</span>{" "}
                 DFT, verification, and systems that behave predictably.
               </p>
               <p>
-                <span className="font-semibold">Consulting analytics:</span>{" "}
-                translating ambiguous inputs into crisp plans.
+                <span className="font-semibold">Applied research:</span>{" "}
+                building tools from real needs and validating feasibility.
               </p>
             </div>
 

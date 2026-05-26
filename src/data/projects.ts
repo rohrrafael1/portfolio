@@ -11,17 +11,18 @@ export type Project = {
   highlights: Metric[];
   outcomes: string[];
   approach: string[];
-  tech: string[];
+  tools: string[];
+  githubUrl?: string;
 };
 
 export const projects: Project[] = [
   {
-    slug: "stoneco-fintech-ai-automation",
+    slug: "stoneco-payments-ai-automation",
     title: "StoneCo — AI-driven workflow automation",
     roleAndOrg: "Software Engineer + Product Manager Intern",
     timeline: "May 2025 – Aug 2025",
     location: "Sao Paulo, SP (Brazil)",
-    category: "Fintech • Applied ML • Product Engineering",
+    category: "Payments • Applied ML • Product Engineering",
     summary:
       "Built secure automation for chat attendants, using AI prompt engineering and a fine-tuned model integrated into a TypeScript API.",
     highlights: [
@@ -35,11 +36,11 @@ export const projects: Project[] = [
       "Created and deployed a fine-tuned ChatGPT model and used it in a TypeScript API endpoint.",
     ],
     approach: [
-      "Partnered across product, design, AI, and R&D to integrate Salesforce CRM, AWS S3, and Twilio into a scalable fintech pipeline.",
+      "Partnered across product, design, AI, and R&D to integrate Salesforce CRM, AWS S3, and Twilio into a scalable workflow pipeline.",
       "Designed model usage patterns around reliability and compliance for sensitive data flows.",
       "Delivered production-ready code that improved throughput without sacrificing security.",
     ],
-    tech: [
+    tools: [
       "TypeScript API development",
       "Salesforce CRM",
       "AWS S3",
@@ -73,7 +74,7 @@ export const projects: Project[] = [
       "Built repeatable scripts to reduce manual overhead and make coverage measurable.",
       "Validated DFT results to ensure reliability targets were met for a pipelined datapath.",
     ],
-    tech: [
+    tools: [
       "Tessent Shell",
       "Scan insertion",
       "ATPG",
@@ -106,7 +107,7 @@ export const projects: Project[] = [
       "Built timing-safe interfaces to coordinate control signals, PWM servo control, and keyboard input.",
       "Iterated on RTL and peripheral drivers until the system performed robustly in practice.",
     ],
-    tech: [
+    tools: [
       "Verilog RTL",
       "5-stage pipelined MIPS CPU",
       "Assembly",
@@ -116,30 +117,44 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "4arms-prosthesis-training",
-    title: "4Arms — Prosthesis for clinician training",
-    roleAndOrg: "Chief Engineer",
-    timeline: "Aug 2024 – Dec 2024",
+    slug: "christensen-family-center-for-innovation-researchcustomai",
+    title: "Christensen Family Center for Innovation — ResearchCustomAI",
+    roleAndOrg: "Undergraduate Researcher",
+    timeline: "Aug 2025 – May 2026",
     location: "Durham, NC (USA)",
-    category: "Hardware Design • Medical Training Systems",
+    category: "Applied AI Research • Product Discovery",
     summary:
-      "Designed and built a 3D-printed fractured forearm prosthesis for training, then validated it with physicians.",
+      "Helped design an AI-powered research workspace that streamlines founder ideation, opportunity evaluation, and venture planning—plus knowledge organization to make inputs actionable.",
     highlights: [
-      { label: "Physician tests", value: "8 physicians" },
-      { label: "Motion/force accuracy", value: "83%" },
-      { label: "Adoption", value: "Official training equipment" },
+      {
+        label: "Discovery focus",
+        value: "Founder workflow → product requirements",
+      },
+      {
+        label: "Validation path",
+        value: "Market analysis + customer discovery",
+      },
+      { label: "Healthcare direction", value: "MCAS exploration" },
     ],
     outcomes: [
-      "Designed a spring-mechanism, 3D-printed fractured forearm prosthesis for training relocation skills.",
-      "Tested the prototype with 8 physicians at Duke Hospital and achieved motion and force accuracy of 83%.",
-      "Established the device as the hospital’s official training equipment.",
+      "Built research artifacts for an AI chatbot platform to support ideation, evaluation, and venture planning.",
+      "Conducted market analysis and customer discovery to assess feasibility and translate qualitative feedback into engineering requirements.",
+      "Explored MCAS and AI-assisted diagnosis to inform a faster, on-site evaluation workflow for cytopathology.",
     ],
     approach: [
-      "Built the mechanical design around realistic force/motion behavior needed for training drills.",
-      "Executed iterative prototype testing with clinician feedback and adjusted the mechanism accordingly.",
-      "Measured performance with a clinician-facing validation process to ensure reliability.",
+      "Researched conversational AI patterns paired with knowledge organization so users can move from prompts to decisions.",
+      "Structured customer discovery to turn ambiguous needs into testable product directions.",
+      "Converted research findings into concrete feature and engineering requirements for a research workflow platform.",
     ],
-    tech: ["3D printing", "Mechanical design", "Prototyping", "Clinical validation"],
+    tools: [
+      "Conversational AI (workflow design)",
+      "Knowledge organization",
+      "Customer discovery",
+      "Market analysis",
+      "MCAS evaluation",
+      "Product requirements",
+    ],
+    githubUrl: "https://github.com/alinadang/ResearchCustomAI",
   },
 ];
 

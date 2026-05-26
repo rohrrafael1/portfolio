@@ -19,12 +19,25 @@ export default function ProjectDetailPage({
     <div className="bg-white dark:bg-black">
       <div className="mx-auto max-w-5xl px-4 pt-10">
         <div className="flex items-center justify-between gap-4">
-          <Link
-            href="/#projects"
-            className="inline-flex items-center gap-2 rounded-full border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-100 dark:border-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-800"
-          >
-            ← Back to projects
-          </Link>
+          <div className="flex flex-wrap items-center gap-3">
+            <Link
+              href="/#projects"
+              className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/80 px-4 py-2 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-100 dark:border-zinc-800 dark:bg-white/10 dark:text-zinc-100 dark:hover:bg-white/20"
+            >
+              ← Back to projects
+            </Link>
+
+            {project.githubUrl ? (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/80 px-4 py-2 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-100 dark:border-zinc-800 dark:bg-white/10 dark:text-zinc-100 dark:hover:bg-white/20"
+              >
+                GitHub repo
+              </a>
+            ) : null}
+          </div>
 
           <span className="shrink-0 rounded-full border border-zinc-200 bg-white/60 px-3 py-1 text-xs font-medium text-zinc-700 backdrop-blur dark:border-zinc-800 dark:bg-black/40 dark:text-zinc-200">
             {project.category}
@@ -82,10 +95,10 @@ export default function ProjectDetailPage({
 
         <div className="mt-8">
           <p className="text-sm font-semibold text-zinc-950 dark:text-zinc-50">
-            Tech & tools
+            Tools & stack
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
-            {project.tech.map((t) => (
+            {project.tools.map((t) => (
               <span
                 key={t}
                 className="rounded-full border border-zinc-200 bg-white/60 px-3 py-1 text-xs font-medium text-zinc-800 dark:border-zinc-800 dark:bg-black/30 dark:text-zinc-100"

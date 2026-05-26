@@ -52,14 +52,25 @@ export function ProjectCard({ project }: { project: Project }) {
         ))}
       </ul>
 
-      <div className="mt-6">
+      <div className="mt-6 flex flex-wrap gap-2">
         <Link
           href={`/projects/${project.slug}`}
-          className="inline-flex items-center gap-2 rounded-full border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-100 dark:border-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-800"
+          className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/80 px-4 py-2 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-100 dark:border-zinc-800 dark:bg-white/10 dark:text-zinc-100 dark:hover:bg-white/20"
         >
           Read case study
           <span aria-hidden="true">→</span>
         </Link>
+
+        {project.githubUrl ? (
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/80 px-4 py-2 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-100 dark:border-zinc-800 dark:bg-white/10 dark:text-zinc-100 dark:hover:bg-white/20"
+          >
+            GitHub repo
+          </a>
+        ) : null}
       </div>
     </article>
   );
