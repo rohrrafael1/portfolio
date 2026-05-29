@@ -136,7 +136,6 @@ export function Navbar() {
             aria-controls={menuId}
             onClick={() => setOpen((v) => !v)}
           >
-            <IconMenu open={open} />
           </button>
         </div>
       </div>

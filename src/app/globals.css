@@ -131,8 +131,8 @@ section {
   box-shadow: 0 2px 12px 0 rgba(2,6,23,0.6);
 }
 .dark .btn {
-  border-color: #27272a;
-  background: #14151a; /* slightly elevated button surface */
+  border-color: zinc-900;
+  background: zinc-900; /* slightly elevated button surface */
   color: #eef2ff;
 }
 .dark .btn:hover, .dark .btn:focus-visible {
