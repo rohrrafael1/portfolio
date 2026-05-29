@@ -2,10 +2,10 @@ import type { Project } from "@/data/projects";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="group card relative overflow-hidden p-7 rounded-2xl border border-zinc-200 bg-zinc900 shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900">
+    <article className="group card relative overflow-hidden p-7 rounded-2xl border border-zinc-200 shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900">
       {/* Visual proof: image slot if present */}
       {project.imageDirectory ? (
-        <div className="mb-5 rounded-xl overflow-hidden border border-zinc-100 dark:border-zinc-800 bg-zinc-900 dark:bg-zinc-900 aspect-video flex items-center justify-center">
+        <div className="mb-5 rounded-xl overflow-hidden border border-zinc-100 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 aspect-video flex items-center justify-center">
           <img
             src={`/case-studies/${project.imageDirectory}/cover.png`}
             alt={project.title + " screenshot"}
@@ -29,7 +29,7 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
       </div>
       <div>
-        <span className="shrink-0 rounded-full border border-zinc-200 bg-black/40 px-3 py-1 text-xs font-medium text-zinc-700 backdrop-blur dark:border-zinc-800/80 dark:bg-black/40 dark:text-zinc-200">
+        <span className="shrink-0 rounded-full border border-zinc-200 bg-black/5 dark:bg-black/40 px-3 py-1 text-xs font-medium text-zinc-700 backdrop-blur dark:border-zinc-800/80 dark:text-zinc-200">
             {project.category}
             </span>
       </div>
@@ -42,7 +42,7 @@ export function ProjectCard({ project }: { project: Project }) {
         {project.highlights.slice(0, 3).map((m) => (
           <span
             key={`${m.label}-${m.value}`}
-            className="rounded-full border border-zinc-200 bg-black/40 px-3 py-1 text-xs font-medium text-zinc-900 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-black/40 dark:text-zinc-50"
+            className="rounded-full border border-zinc-200 bg-black/5 dark:bg-black/40 px-3 py-1 text-xs font-medium text-zinc-900 shadow-sm backdrop-blur dark:border-zinc-800 dark:text-zinc-50"
           >
             <span className="mr-1 font-semibold">{m.value}</span>
             <span className="text-zinc-500 dark:text-zinc-400">{m.label}</span>
@@ -75,7 +75,7 @@ export function ProjectCard({ project }: { project: Project }) {
             href={project.githubUrl}
             target="_blank"
             rel="noreferrer"
-            className="btn border-zinc-200 bg-zinc-900 text-zinc-900 hover:bg-zinc-800 hover:border-zinc-300 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
+            className="btn border-zinc-200 bg-zinc-50 text-zinc-900 hover:bg-zinc-100 hover:border-zinc-300 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
           >
             GitHub repo
           </a>
