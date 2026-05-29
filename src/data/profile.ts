@@ -13,7 +13,7 @@ export type Profile = {
 
 export const profile: Profile = {
   name: "Rafael Rohr",
-  titleLine: "Brazilian Duke ECE student focused on hardware verification, embedded systems, and reliable software infrastructure.",
+  titleLine: "Brazilian ECE student at Duke building reliable systems across hardware verification, embedded systems, applied AI, and finance.",
   headline:
     "Electrical & Computer Engineering student building reliable systems across hardware verification, embedded systems, and applied AI passionate about the idea that technology empowers humankind.",
   summary: [

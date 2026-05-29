@@ -27,7 +27,7 @@ export default function Home() {
             <ul className="mt-4 space-y-3 text-sm text-zinc-700 dark:text-zinc-300">
               <li>
                 <span className="font-semibold">Measurable engineering impact:</span>{" "}
-                quantifyable improvements, short feedback loops.
+                quantifiable improvements, short feedback loops.
               </li>
               <li>
                 <span className="font-semibold">Disciplined engineering:</span>{" "}
