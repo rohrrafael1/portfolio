@@ -19,6 +19,16 @@ body {
   min-height: 100vh;
 }
 
+.dark body {
+  border-radius: 1.25rem;
+  border: 1px solid #000000;
+  background: #000000;
+  color: #0f172a;
+  box-shadow: 0 2px 12px 0 rgba(15,23,42,0.03);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
 /* Links */
 a {
   color: inherit;
@@ -70,6 +80,21 @@ section {
   box-shadow: 0 6px 32px 0 rgba(15,23,42,0.08);
   transform: translateY(-2px) scale(1.01);
 }
+
+.dark .card {
+  border-radius: 1.25rem;
+  border: 1px solid #39383d;
+  background: #39383d;
+  color: #e0e5f1;
+  box-shadow: 0 2px 12px 0 rgba(15,23,42,0.04);
+  backdrop-filter: blur(2px);
+  transition: box-shadow 0.2s cubic-bezier(.4,0,.2,1), transform 0.2s cubic-bezier(.4,0,.2,1);
+}
+.dark .card:hover {
+  box-shadow: 0 6px 32px 0 rgba(15,23,42,0.08);
+  transform: translateY(-2px) scale(1.01);
+}
+
 
 /* Button/CTA polish (light) */
 .btn {
