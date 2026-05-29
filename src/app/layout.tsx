@@ -32,11 +32,9 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} dark h-full antialiased`}
     >
       <body className="dark min-h-full flex flex-col bg-black text-zinc-900 selection:bg-zinc-200 dark:bg-black dark:text-zinc-50 dark:selection:bg-zinc-800">
-        <Providers>
           <Navbar />
           <main className="flex-1 bg-black">{children}</main>
           <Footer />
-        </Providers>
       </body>
     </html>
   );
