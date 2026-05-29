@@ -23,7 +23,7 @@ body {
   border-radius: 1.25rem;
   border: 1px solid #000000;
   background: #000000;
-  color: #0f172a;
+  color: zinc-300;
   box-shadow: 0 2px 12px 0 rgba(15,23,42,0.03);
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
@@ -125,14 +125,14 @@ section {
   border: 1px solid #0a0a0a;
 }
 .dark .card {
-  border-color: #222428;
-  background: #0f1724; /* deep but not pitch black */
+  border-color: zinc-300;
+  background: zinc-300; /* deep but not pitch black */
   color: #e6eef8;
   box-shadow: 0 2px 12px 0 rgba(2,6,23,0.6);
 }
 .dark .btn {
-  border-color: zinc-900;
-  background: zinc-900; /* slightly elevated button surface */
+  border-color: #27272a;
+  background: #14151a; /* slightly elevated button surface */
   color: #eef2ff;
 }
 .dark .btn:hover, .dark .btn:focus-visible {
