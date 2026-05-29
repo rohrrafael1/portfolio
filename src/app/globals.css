@@ -120,19 +120,20 @@ section {
 
 /* Dark mode overrides */
 .dark body {
-  background: #000000;
-  color: #f4f4f5;
-  border: 1px solid #000000;
+  background: #0b1220; /* softer dark navy for reduced contrast */
+  color: #e6eef8; /* slightly warm light text */
+  border: 1px solid #0a0a0a;
 }
 .dark .card {
-  border-color: #27272a;
-  background: #18181b;
-  color: #f4f4f5;
+  border-color: #222428;
+  background: #0f1724; /* deep but not pitch black */
+  color: #e6eef8;
+  box-shadow: 0 2px 12px 0 rgba(2,6,23,0.6);
 }
 .dark .btn {
   border-color: #27272a;
-  background: #23232b;
-  color: #f4f4f5;
+  background: #14151a; /* slightly elevated button surface */
+  color: #eef2ff;
 }
 .dark .btn:hover, .dark .btn:focus-visible {
   background: #23234a;

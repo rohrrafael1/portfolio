@@ -56,7 +56,7 @@ export function Hero() {
           {topHighlights.map((m, idx) => (
             <span
               key={`${m?.label}-${idx}`}
-              className="rounded-full border border-zinc-200 bg-white/70 px-3 py-1 text-xs font-medium text-zinc-900 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-black/40 dark:text-zinc-50"
+              className="rounded-full border border-zinc-200 bg-white/70 px-3 py-1 text-xs font-medium text-zinc-900 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-800/40 dark:text-zinc-50"
             >
               {m.value}
               <span className="ml-2 text-zinc-500 dark:text-zinc-400">{m.label}</span>

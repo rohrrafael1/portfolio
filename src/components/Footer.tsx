@@ -3,7 +3,7 @@ import Link from "next/link";
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-zinc-200/70 bg-white/30 py-8 dark:border-zinc-800/70 dark:bg-black/30">
+    <footer className="border-t border-zinc-200/70 bg-white/30 py-8 dark:border-zinc-800/70 dark:bg-zinc-900/30">
       <div className="mx-auto flex max-w-5xl flex-col gap-4 px-6 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm text-zinc-300 dark:text-zinc-300">
           © {year} Rafael Rohr. Built for clarity, reliability, and measurable outcomes.

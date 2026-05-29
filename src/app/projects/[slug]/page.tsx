@@ -19,7 +19,7 @@ export default async function ProjectDetailPage({
   if (!project) notFound();
 
   return (
-    <div className="bg-white dark:bg-black">
+    <div className="bg-white dark:bg-zinc-900">
       <div className="mx-auto max-w-5xl px-4 pt-10">
         <div className="flex items-center justify-between gap-4">
           <div className="flex flex-wrap items-center gap-3">
@@ -42,7 +42,7 @@ export default async function ProjectDetailPage({
             ) : null}
           </div>
 
-          <span className="shrink-0 rounded-full border border-zinc-200 bg-white/60 px-3 py-1 text-xs font-medium text-zinc-700 backdrop-blur dark:border-zinc-800 dark:bg-black/40 dark:text-zinc-200">
+          <span className="shrink-0 rounded-full border border-zinc-200 bg-white/60 px-3 py-1 text-xs font-medium text-zinc-700 backdrop-blur dark:border-zinc-800 dark:bg-zinc-800/40 dark:text-zinc-200">
             {project.category}
           </span>
         </div>
@@ -66,7 +66,7 @@ export default async function ProjectDetailPage({
           {project.highlights.map((m) => (
             <span
               key={`${m.label}-${m.value}`}
-              className="rounded-full border border-zinc-200 bg-white/70 px-3 py-1 text-xs font-medium text-zinc-800 dark:border-zinc-800 dark:bg-black/40 dark:text-zinc-100"
+              className="rounded-full border border-zinc-200 bg-white/70 px-3 py-1 text-xs font-medium text-zinc-800 dark:border-zinc-800 dark:bg-zinc-800/40 dark:text-zinc-100"
             >
               <span className="font-semibold">{m.value}</span>{" "}
               <span className="ml-2 text-zinc-500 dark:text-zinc-400">
@@ -110,7 +110,7 @@ export default async function ProjectDetailPage({
             {project.tools.map((t) => (
               <span
                 key={t}
-                className="rounded-full border border-zinc-200 bg-white/60 px-3 py-1 text-xs font-medium text-zinc-800 dark:border-zinc-800 dark:bg-black/30 dark:text-zinc-100"
+                className="rounded-full border border-zinc-200 bg-white/60 px-3 py-1 text-xs font-medium text-zinc-800 dark:border-zinc-800 dark:bg-zinc-800/30 dark:text-zinc-100"
               >
                 {t}
               </span>

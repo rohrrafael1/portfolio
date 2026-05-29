@@ -6,7 +6,7 @@ import { profile } from "@/data/profile";
 
 export default function Home() {
   return (
-    <div className="bg-white dark:bg-black">
+    <div className="bg-white dark:bg-zinc-900">
       <Hero />
 
       <Section id="about" eyebrow="ABOUT" title="Engineering approach">
@@ -20,7 +20,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-zinc-200/70 bg-white/70 p-6 shadow-sm backdrop-blur dark:border-zinc-800/70 dark:bg-black/20">
+          <div className="rounded-2xl border border-zinc-200/70 bg-white/70 p-6 shadow-sm backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-900/20">
             <p className="text-sm font-semibold text-zinc-950 dark:text-zinc-50">
               Strengths that show up in my work
             </p>
@@ -67,7 +67,7 @@ export default function Home() {
 
       <Section id="contact" eyebrow="CONTACT" title="Let’s connect">
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-2xl border border-zinc-200/70 bg-white/70 p-6 shadow-sm backdrop-blur dark:border-zinc-800/70 dark:bg-black/20">
+          <div className="rounded-2xl border border-zinc-200/70 bg-white/70 p-6 shadow-sm backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-900/20">
             <p className="text-sm font-semibold text-zinc-950 dark:text-zinc-50">
               Best way to reach me
             </p>
@@ -94,7 +94,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-zinc-200/70 bg-white/70 p-6 shadow-sm backdrop-blur dark:border-zinc-800/70 dark:bg-black/20">
+          <div className="rounded-2xl border border-zinc-200/70 bg-white/70 p-6 shadow-sm backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-900/20">
             <p className="text-sm font-semibold text-zinc-950 dark:text-zinc-50">
               Current focus
             </p>
