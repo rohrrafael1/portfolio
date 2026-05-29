@@ -144,19 +144,6 @@ export function Navbar() {
             Resume
           </a>
         </div>
-
-        <div className="flex items-center md:hidden">
-          <ThemeSwitch />
-          <button
-            type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 text-zinc-900 transition-colors hover:bg-zinc-100 focus-visible:ring-2 focus-visible:ring-indigo-300 dark:border-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-900 ml-2"
-            aria-expanded={open}
-            aria-controls={menuId}
-            onClick={() => setOpen((v) => !v)}
-          >
-            <IconMenu open={open} />
-          </button>
-        </div>
       </div>
 
       {open ? (
