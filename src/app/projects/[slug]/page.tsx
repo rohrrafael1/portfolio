@@ -1,18 +1,21 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Section } from "@/components/Section";
+import { CaseStudyGallery } from "@/components/CaseStudyGallery";
 import { getProjectBySlug, projects } from "@/data/projects";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
 
-export default function ProjectDetailPage({
+export default async function ProjectDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const project = getProjectBySlug(params.slug);
+  const { slug } = await params;
+
+  const project = getProjectBySlug(slug);
   if (!project) notFound();
 
   return (
@@ -22,7 +25,7 @@ export default function ProjectDetailPage({
           <div className="flex flex-wrap items-center gap-3">
             <Link
               href="/#projects"
-              className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/80 px-4 py-2 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-100 dark:border-zinc-800 dark:bg-white/10 dark:text-zinc-100 dark:hover:bg-white/20"
+              className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-4 py-2 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
             >
               ← Back to projects
             </Link>
@@ -32,7 +35,7 @@ export default function ProjectDetailPage({
                 href={project.githubUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/80 px-4 py-2 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-100 dark:border-zinc-800 dark:bg-white/10 dark:text-zinc-100 dark:hover:bg-white/20"
+                className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-4 py-2 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
               >
                 GitHub repo
               </a>
@@ -73,6 +76,12 @@ export default function ProjectDetailPage({
           ))}
         </div>
       </div>
+
+      {project.imageDirectory && (
+        <Section eyebrow="VISUALS" title="Project materials">
+          <CaseStudyGallery imageDirectory={project.imageDirectory} />
+        </Section>
+      )}
 
       <Section eyebrow="RESULTS" title="What changed">
         <ul className="space-y-3 text-base text-zinc-700 dark:text-zinc-300">

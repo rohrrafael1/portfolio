@@ -9,8 +9,8 @@ export default function Home() {
     <div className="bg-white dark:bg-black">
       <Hero />
 
-      <Section id="about" eyebrow="ABOUT" title="What you can expect">
-        <div className="grid gap-8 md:grid-cols-2">
+      <Section id="about" eyebrow="ABOUT" title="Engineering approach">
+        <div className="grid gap-8 md:grid-cols-2 items-start">
           <div className="space-y-4">
             <p className="text-base leading-7 text-zinc-700 dark:text-zinc-300">
               {profile.summary[0]}
@@ -26,8 +26,8 @@ export default function Home() {
             </p>
             <ul className="mt-4 space-y-3 text-sm text-zinc-700 dark:text-zinc-300">
               <li>
-                <span className="font-semibold">Result-driven delivery:</span>{" "}
-                measurable improvements, short feedback loops.
+                <span className="font-semibold">Measurable engineering impact:</span>{" "}
+                quantifyable improvements, short feedback loops.
               </li>
               <li>
                 <span className="font-semibold">Disciplined engineering:</span>{" "}
@@ -72,22 +72,22 @@ export default function Home() {
               Best way to reach me
             </p>
             <p className="mt-3 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
-              I respond quickly. If you’re looking for a builder who delivers
-              reliable systems and communicates honestly, send the details and
-              I’ll tailor my work to the role.
+              I enjoy working on technically challenging problems involving reliable
+              systems, hardware verification, and applied engineering. If you think
+              there’s a fit, feel free to reach out.
             </p>
 
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
                 href={`mailto:${profile.email}`}
-                className="inline-flex items-center justify-center rounded-full bg-zinc-900 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-white"
+                className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-zinc-50 px-6 py-2.5 text-sm font-medium text-zinc-900 shadow-sm transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:hover:bg-zinc-800"
               >
                 Email me
               </a>
               <a
                 href={profile.resumePath}
                 download
-                className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white px-6 py-2.5 text-sm font-medium text-zinc-900 shadow-sm transition-colors hover:bg-zinc-50 dark:border-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-100"
+                className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-zinc-50 px-6 py-2.5 text-sm font-medium text-zinc-900 shadow-sm transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:hover:bg-zinc-800"
               >
                 Download resume
               </a>

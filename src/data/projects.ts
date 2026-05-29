@@ -13,12 +13,13 @@ export type Project = {
   approach: string[];
   tools: string[];
   githubUrl?: string;
+  imageDirectory?: string;
 };
 
 export const projects: Project[] = [
   {
     slug: "stoneco-payments-ai-automation",
-    title: "StoneCo — AI-driven workflow automation",
+    title: "StoneCo: AI-driven workflow automation",
     roleAndOrg: "Software Engineer + Product Manager Intern",
     timeline: "May 2025 – Aug 2025",
     location: "Sao Paulo, SP (Brazil)",
@@ -49,10 +50,11 @@ export const projects: Project[] = [
       "Fine-tuning",
       "Secure data handling",
     ],
+    imageDirectory: "stone",
   },
   {
     slug: "riscv-dft-testability",
-    title: "RISC-V (pipelined) — Design for Testability (DFT)",
+    title: "RISC-V (pipelined): Design for Testability (DFT)",
     roleAndOrg: "Independent Study Researcher",
     timeline: "Jan 2026 – Present",
     location: "Durham, NC (USA)",
@@ -82,10 +84,11 @@ export const projects: Project[] = [
       "RISC-V digital design",
       "Scripting for verification",
     ],
+    imageDirectory: "siemens-presentation",
   },
   {
     slug: "spell-it-out-fpga-robotics",
-    title: "Spell-it-Out — FPGA robotic writing system",
+    title: "Spell-it-Out: FPGA robotic writing system",
     roleAndOrg: "FPGA Engineer",
     timeline: "Apr 2026 – May 2026",
     location: "Durham, NC (USA)",
@@ -115,16 +118,18 @@ export const projects: Project[] = [
       "PS2 keyboard input",
       "Memory-mapped interfaces",
     ],
+    imageDirectory: "ece350-final-project",
+    githubUrl: "https://github.com/rohrrafael1/spell-it-out",
   },
   {
     slug: "christensen-family-center-for-innovation-researchcustomai",
-    title: "Christensen Family Center for Innovation — ResearchCustomAI",
+    title: "Christensen Family Center for Innovation: ResearchCustomAI",
     roleAndOrg: "Undergraduate Researcher",
     timeline: "Aug 2025 – May 2026",
     location: "Durham, NC (USA)",
     category: "Applied AI Research • Product Discovery",
     summary:
-      "Helped design an AI-powered research workspace that streamlines founder ideation, opportunity evaluation, and venture planning—plus knowledge organization to make inputs actionable.",
+      "Helped design an AI-powered research workspace that streamlines founder ideation, opportunity evaluation, and venture planning, plus knowledge organization to make inputs actionable.",
     highlights: [
       {
         label: "Discovery focus",
@@ -155,6 +160,39 @@ export const projects: Project[] = [
       "Product requirements",
     ],
     githubUrl: "https://github.com/alinadang/ResearchCustomAI",
+      imageDirectory: "cfci",
+  },
+  {
+    slug: "4arms-prosthesis-training",
+    title: "4Arms: Prosthesis for clinician training",
+    roleAndOrg: "Chief Engineer",
+    timeline: "Aug 2024 – Dec 2024",
+    location: "Durham, NC (USA)",
+    category: "Hardware Design • Medical Training Systems",
+    summary:
+      "Designed and built a 3D-printed fractured forearm prosthesis for training, then validated it with physicians.",
+    highlights: [
+      { label: "Physician tests", value: "8 physicians" },
+      { label: "Motion/force accuracy", value: "83%" },
+      { label: "Adoption", value: "Official training equipment" },
+    ],
+    outcomes: [
+      "Designed a spring-mechanism, 3D-printed fractured forearm prosthesis for training relocation skills.",
+      "Tested the prototype with 8 physicians at Duke Hospital and achieved motion and force accuracy of 83%.",
+      "Established the device as the hospital's official training equipment.",
+    ],
+    approach: [
+      "Built the mechanical design around realistic force/motion behavior needed for training drills.",
+      "Executed iterative prototype testing with clinician feedback and adjusted the mechanism accordingly.",
+      "Measured performance with a clinician-facing validation process to ensure reliability.",
+    ],
+    tools: [
+      "3D printing",
+      "Mechanical design",
+      "Prototyping",
+      "Clinical validation",
+    ],
+    imageDirectory: "poster",
   },
 ];
 

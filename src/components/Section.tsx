@@ -12,7 +12,7 @@ export function Section({
   children: ReactNode;
 }) {
   return (
-    <section id={id} className="scroll-mt-24 py-14 sm:py-20">
+    <section id={id} className="scroll-mt-24 py-0 sm:py-0">
       <div className="mx-auto w-full max-w-5xl px-4">
         {eyebrow ? (
           <p className="text-xs font-semibold tracking-widest text-zinc-500 dark:text-zinc-400">

@@ -17,42 +17,42 @@ export function Hero() {
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-zinc-200/70 to-transparent dark:via-zinc-800/70" />
       </div>
 
-      <div className="mx-auto max-w-5xl px-4 pb-6 pt-10 sm:pb-10 sm:pt-14">
-        <p className="text-xs font-semibold tracking-widest text-zinc-500 dark:text-zinc-400">
+      <div className="mx-auto max-w-5xl px-6 pb-10 pt-16 sm:pb-16 sm:pt-24">
+        <p className="text-xs font-semibold tracking-widest text-zinc-500 dark:text-zinc-400 mb-2">
           {profile.titleLine} • {profile.interests.join(" • ")}
         </p>
 
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 sm:text-5xl">
-          {profile.headline}
+        <h1 className="h1 relative mb-6 text-zinc-950 dark:text-zinc-50">
+          <span className="relative z-10">{profile.name}</span>
         </h1>
 
-        <p className="mt-5 max-w-2xl text-base leading-7 text-zinc-700 dark:text-zinc-300 sm:text-lg">
-          {profile.summary[0]}
+        <p className="mt-7 max-w-2xl text-lg leading-8 text-zinc-700 dark:text-zinc-300">
+          {profile.headline}
         </p>
 
-        <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
           <a
             href={`mailto:${profile.email}`}
-            className="inline-flex h-11 items-center justify-center rounded-full bg-zinc-900 px-6 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-white"
+            className="btn border-zinc-200 bg-zinc-50 text-zinc-900 hover:bg-indigo-50 hover:border-indigo-200 hover:text-indigo-900 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-indigo-950 dark:hover:text-indigo-200"
           >
             Email me
           </a>
           <Link
             href="#projects"
-            className="inline-flex h-11 items-center justify-center rounded-full border border-zinc-200 bg-white px-6 text-sm font-medium text-zinc-900 shadow-sm transition-colors hover:bg-zinc-50 dark:border-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-100"
+            className="btn border-indigo-200 bg-indigo-50 text-indigo-900 font-semibold hover:bg-indigo-100 hover:border-indigo-300 dark:border-indigo-700 dark:bg-indigo-950 dark:text-indigo-100 dark:hover:bg-indigo-900"
           >
             View projects
           </Link>
           <Link
             href={profile.resumePath}
             download
-            className="inline-flex h-11 items-center justify-center rounded-full border border-zinc-200 bg-white px-6 text-sm font-medium text-zinc-900 shadow-sm transition-colors hover:bg-zinc-50 dark:border-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-100"
+            className="btn border-zinc-200 bg-zinc-50 text-zinc-900 hover:bg-zinc-100 hover:border-zinc-300 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
           >
             Download resume
           </Link>
         </div>
 
-        <div className="mt-8 flex flex-wrap items-center gap-2">
+        <div className="mt-10 flex flex-wrap items-center gap-2">
           {topHighlights.map((m, idx) => (
             <span
               key={`${m?.label}-${idx}`}
@@ -66,11 +66,19 @@ export function Hero() {
             href={`https://${profile.linkedIn}`}
             target="_blank"
             rel="noreferrer"
-            className="ml-2 text-sm text-zinc-700 transition-colors hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white"
+            className="ml-2 text-sm text-zinc-700 transition-colors hover:text-indigo-700 dark:text-zinc-300 dark:hover:text-indigo-300"
           >
             LinkedIn
           </a>
         </div>
+
+        {/* Subtle underline animation keyframes */}
+        <style>{`
+          @keyframes hero-underline-move {
+            0% { transform: translateX(-8px) scaleX(0.98); opacity: 0.7; }
+            100% { transform: translateX(8px) scaleX(1.02); opacity: 1; }
+          }
+        `}</style>
       </div>
     </section>
   );
