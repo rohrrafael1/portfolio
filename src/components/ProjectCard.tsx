@@ -1,13 +1,21 @@
 import type { Project } from "@/data/projects";
 
 export function ProjectCard({ project }: { project: Project }) {
+  const coverSource = project.coverImageUrl
+    ? project.coverImageUrl
+    : project.imageDirectory === "itau"
+      ? `/case-studies/${project.imageDirectory}/cover.jpg`
+      : project.imageDirectory
+        ? `/case-studies/${project.imageDirectory}/cover.png`
+        : undefined;
+
   return (
     <article className="group card relative overflow-hidden p-7 rounded-2xl border border-zinc-200 shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900">
       {/* Visual proof: image slot if present */}
-      {project.imageDirectory ? (
+      {coverSource ? (
         <div className="mb-5 rounded-xl overflow-hidden border border-zinc-100 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/70 aspect-video flex items-center justify-center">
           <img
-            src={`/case-studies/${project.imageDirectory}/cover.png`}
+            src={coverSource}
             alt={project.title + " screenshot"}
             className="object-cover w-full 100vh transition-opacity duration-300 group-hover:opacity-90"
             loading="lazy"
@@ -62,24 +70,48 @@ export function ProjectCard({ project }: { project: Project }) {
       </ul>
 
       <div className="mt-7 flex flex-wrap gap-2">
-        <a
-          href={`/projects/${project.slug}`}
-          className="btn border-indigo-200 bg-indigo-950 text-indigo-900 font-semibold hover:bg-indigo-900 hover:border-indigo-300 dark:border-indigo-700 dark:bg-indigo-950 dark:text-indigo-100 dark:hover:bg-indigo-900"
-        >
-          Read case study
-          <span aria-hidden="true">→</span>
-        </a>
+        {project.slug === "formula-one-first-coding-project" ? (
+          <>
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="btn border-zinc-200 bg-zinc-50 text-zinc-900 hover:bg-zinc-100 hover:border-zinc-300 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
+            >
+              GitHub repo
+            </a>
+            <a
+              href="/games/formula-i/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn border-indigo-200 bg-indigo-950 text-indigo-900 font-semibold hover:bg-indigo-900 hover:border-indigo-300 dark:border-indigo-700 dark:bg-indigo-950 dark:text-indigo-100 dark:hover:bg-indigo-900"
+            >
+              Play game
+              <span aria-hidden="true">→</span>
+            </a>
+          </>
+        ) : (
+          <>
+            <a
+              href={`/projects/${project.slug}`}
+              className="btn border-indigo-200 bg-indigo-950 text-indigo-900 font-semibold hover:bg-indigo-900 hover:border-indigo-300 dark:border-indigo-700 dark:bg-indigo-950 dark:text-indigo-100 dark:hover:bg-indigo-900"
+            >
+              Read case study
+              <span aria-hidden="true">→</span>
+            </a>
 
-        {project.githubUrl ? (
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="btn border-zinc-200 bg-zinc-50 text-zinc-900 hover:bg-zinc-100 hover:border-zinc-300 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
-          >
-            GitHub repo
-          </a>
-        ) : null}
+            {project.githubUrl ? (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="btn border-zinc-200 bg-zinc-50 text-zinc-900 hover:bg-zinc-100 hover:border-zinc-300 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
+              >
+                GitHub repo
+              </a>
+            ) : null}
+          </>
+        )}
       </div>
     </article>
   );

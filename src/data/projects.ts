@@ -14,9 +14,46 @@ export type Project = {
   tools: string[];
   githubUrl?: string;
   imageDirectory?: string;
+  coverImageUrl?: string;
 };
 
 export const projects: Project[] = [
+  {
+    slug: "itau-investment-intelligence",
+    title: "Itaú: AI investment intelligence platform",
+    roleAndOrg: "AI & Data Engineering Intern · Itaú Unibanco",
+    timeline: "Experience",
+    location: "Brazil",
+    category: "Applied AI • Financial Technology • Data Platforms",
+    summary:
+      "Built AI-powered investment intelligence and data products that helped portfolio teams monitor risk, act on client opportunities, and scale analytical workflows into production.",
+    highlights: [
+      { label: "AI platform", value: "Portfolio monitoring" },
+      { label: "Cloud pipeline", value: "AWS + LangGraph" },
+      { label: "Data visibility", value: "Single source of truth" },
+    ],
+    outcomes: [
+      "Built an AI investment intelligence platform that detected portfolio anomalies and risk events and generated executive reports for proactive portfolio monitoring.",
+      "Architected an end-to-end AWS S3, Glue, SageMaker, and LangGraph pipeline to automate analysis and reporting, scaling an analytical workflow into a production process.",
+      "Created GPIS' centralized product platform with the Microsoft Stack and Amazon QuickSight, establishing a single source of truth that improved visibility and execution.",
+      "Developed an AI workflow to flag discretionary portfolio management high-propensity clients, easing bankers' operations and enabling more data-driven client engagement.",
+    ],
+    approach: [
+      "Combined cloud data engineering, applied machine learning, and agentic workflow orchestration to turn portfolio data into actionable intelligence.",
+      "Designed reporting and dashboard experiences around the decisions portfolio teams and bankers need to make quickly.",
+      "Built reusable data products that connected analysis, executive communication, and client engagement workflows.",
+    ],
+    tools: [
+      "AWS S3",
+      "AWS Glue",
+      "Amazon SageMaker",
+      "LangGraph",
+      "Microsoft Stack",
+      "Amazon QuickSight",
+      "Portfolio analytics",
+    ],
+    imageDirectory: "itau",
+  },
   {
     slug: "stoneco-payments-ai-automation",
     title: "StoneCo: AI-driven workflow automation",

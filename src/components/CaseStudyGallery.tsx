@@ -17,6 +17,7 @@ export function CaseStudyGallery({
     "poster": 1,
     "stone": 1,
     "cfci": 1,
+    "itau": 1,
   };
 
   const pageCount = imageCounts[imageDirectory] || 0;

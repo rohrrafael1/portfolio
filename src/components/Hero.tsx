@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { profile } from "@/data/profile";
 import { type Metric, projects } from "@/data/projects";
@@ -18,13 +19,27 @@ export function Hero() {
       </div>
 
       <div className="mx-auto max-w-5xl px-6 pb-10 pt-16 sm:pb-16 sm:pt-24">
-        <p className="text-xs font-semibold tracking-widest text-zinc-500 dark:text-zinc-400 mb-2">
-          {profile.titleLine} • {profile.interests.join(" • ")}
-        </p>
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <p className="mb-2 text-xs font-semibold tracking-widest text-zinc-500 dark:text-zinc-400">
+              {profile.titleLine} • {profile.interests.join(" • ")}
+            </p>
 
-        <h1 className="h1 relative mb-6 text-zinc-950 dark:text-zinc-50">
-          <span className="relative z-10">{profile.name}</span>
-        </h1>
+            <h1 className="h1 relative mb-6 text-zinc-950 dark:text-zinc-50">
+              <span className="relative z-10">{profile.name}</span>
+            </h1>
+          </div>
+
+          <div className="shrink-0 overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-100 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+            <Image
+              src="/profile.jpg"
+              alt={`${profile.name} profile picture`}
+              width={176}
+              height={176}
+              className="h-40 w-40 object-cover sm:h-44 sm:w-44"
+            />
+          </div>
+        </div>
 
         <p className="mt-7 max-w-2xl text-lg leading-8 text-zinc-700 dark:text-zinc-300">
           {profile.headline}

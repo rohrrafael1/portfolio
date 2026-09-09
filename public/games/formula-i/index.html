@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <title>Rafa Kart</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    
+    <div class="container" id="lobby">
+        <h1 style="color: red;">FORMULA I</h1>
+
+        <button id="play" onclick="game()">START</button>
+    </div>
+
+    <div class="container" id="gamemode" style="display: none">
+        <h1>MODO DE JOGO</h1>
+
+        <button class="button" onclick="ump()">1 Player</button>
+        <button class="button" onclick="doisp()">2 Players</button>
+    </div>
+
+    <div class="container" id="lobby-team-1p" style="display: none">
+        <h1></h1>
+
+        <button class="alpine" onclick="alpinepunico()"></button>
+        <button class="redbull" onclick="redbullpunico()"></button>
+        <button class="mclaren" onclick="mclarenpunico()"></button>
+        <button class="mercedes" onclick="mercedespunico()"></button>
+        <button class="astonmartin" onclick="astonmartinpunico()"></button>
+        <button class="ferrari" onclick="ferraripunico()"></button>
+    </div>
+
+    <div class="container" id="name-1p" style="display: none">
+        <h1>PILOT:</h1>
+
+        <input type="text" id="namepunico" placeholder="Escreva Aqui"> <button class="button"
+            onclick="namepunico()">RACE!</button>
+    </div>
+
+    <div class="container" id="lobby-1team-2p" style="display: none">
+        <h1></h1>
+
+        <button class="alpine" onclick="alpinep1()"></button>
+        <button class="redbull" onclick="redbullp1()"></button>
+        <button class="mclaren" onclick="mclarenp1()"></button>
+        <button class="mercedes" onclick="mercedesp1()"></button>
+        <button class="astonmartin" onclick="astonmartinp1()"></button>
+        <button class="ferrari" onclick="ferrarip1()"></button>
+    </div>
+
+    <div class="container" id="name-p1-2p" style="display: none">
+        <h1>PILOT:</h1>
+
+        <input type="text" id="namep1" placeholder="Escreva Aqui"> <button class="button"
+            onclick="namep1()">Next</button>
+    </div>
+
+    <div class="container" id="lobby-2team-2p" style="display: none">
+        <h1></h1>
+
+        <button class="alpine" onclick="alpinep2()"></button>
+        <button class="redbull" onclick="redbullp2()"></button>
+        <button class="mclaren" onclick="mclarenp2()"></button>
+        <button class="mercedes" onclick="mercedesp2()"></button>
+        <button class="astonmartin" onclick="astonmartinp2()"></button>
+        <button class="ferrari" onclick="ferrarip2()"></button>
+    </div>
+
+    <div class="container" id="name-p2-2p" style="display: none">
+        <h1>PILOT:</h1>
+
+        <input type="text" id="namep2" placeholder="Escreva Aqui"> <button class="button"
+            onclick="namep2()">RACE!</button>
+    </div>
+
+    <div class="race" id="race" style="display: none">
+        <canvas id="canvas" style="background-color: rgb(90, 90, 90); border: 1px solid black;">
+        </canvas>
+    </div>
+
+    <div class="podium" id="podium" style="display: none">
+        <button class="recomeçar" onclick="restart()">RECOMEÇAR</button>
+        <h1 class= "champname" id="champname">Name</h1>
+        <h1 class= "champteam" id="champteam">Team</h1>
+    </div>
+
+    <script src="consts.js"></script>
+    <script src="circles.js"></script>
+    <script src="recs.js"></script>
+    <script src="cars.js"></script>
+    <script src="screen.js"></script>
+    <script src="functions.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>
