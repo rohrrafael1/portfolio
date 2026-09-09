@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rafael Rohr | Portfolio
 
-## Getting Started
+> Personal portfolio showcasing my work in software engineering, AI, hardware engineering, and product development.
 
-First, run the development server:
+🌐 **Live Website:** https://rafaelrohr.vercel.app/
+
+---
+
+## About
+
+Hi! I'm **Rafael Rohr**, an Electrical & Computer Engineering student at Duke University with interests spanning software engineering, artificial intelligence, quantitative finance, and computer architecture.
+
+I've worked on products ranging from AI systems at **Itaú Unibanco** and **StoneCo** to FPGA projects, semiconductor research, and startup innovation initiatives. I enjoy building technology that solves meaningful problems while combining strong technical execution with product thinking.
+
+This portfolio brings together my projects, experience, resume, and ways to connect.
+
+---
+
+## Highlights
+
+- AI & Machine Learning applications
+- Full Stack Software Engineering
+- Hardware Design & Computer Architecture
+- Product Management
+- Research & Innovation
+- Technical Leadership
+
+Featured work includes:
+
+- AI investment intelligence platform
+- Production AI systems for fintech
+- FPGA robotic whiteboard writer with a custom pipelined CPU
+- Design for Testability (DFT) research on RISC-V processors
+- Engineering and startup innovation research at Duke
+
+---
+
+## Tech Stack
+
+**Frontend**
+- React
+- Next.js
+- TypeScript
+- Tailwind CSS
+
+**Other Technologies**
+- Python
+- Java
+- C
+- Verilog
+- SQL
+- AWS (S3, Glue, SageMaker)
+- Git
+- Docker
+
+---
+
+## Running Locally
+
+Clone the repository:
+
+```bash
+git clone https://github.com/<your-username>/<repository>.git
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Connect
 
-To learn more about Next.js, take a look at the following resources:
+🌐 Portfolio: https://rafaelrohr.vercel.app/
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+💼 LinkedIn: https://linkedin.com/in/rohrrafael
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+📧 Email: rafael.sersonrohr@duke.edu
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is intended to showcase my work and personal portfolio.
+
+You're welcome to explore the code for learning and inspiration, but please do not copy substantial portions of the design, content, or branding without permission.
