@@ -55,8 +55,8 @@ export function ProjectGrid({ projects }: { projects: Project[] }) {
         {projects.map((p) => (
           <ProjectCard key={p.slug} project={p} />
         ))}
-        <ProjectCard key={formulaOneGameCard.slug} project={formulaOneGameCard} />
         <ProjectCard key={maedimCard.slug} project={maedimCard} />
+        <ProjectCard key={formulaOneGameCard.slug} project={formulaOneGameCard} />
       </div>
     </div>
   );
