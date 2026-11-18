@@ -1,75 +1,119 @@
-import Image from "next/image";
-import Link from "next/link";
 import type { Project } from "@/data/projects";
-export function ProjectCard({
-  project,
-  index = 0,
-  featured = false,
-}: {
-  project: Project;
-  index?: number;
-  featured?: boolean;
-}) {
-  const cover =
-    project.coverImageUrl ??
-    (project.imageDirectory
-      ? `/case-studies/${project.imageDirectory}/cover.${project.imageDirectory === "itau" ? "jpg" : "png"}`
-      : null);
+
+export function ProjectCard({ project }: { project: Project }) {
+  const coverSource = project.coverImageUrl
+    ? project.coverImageUrl
+    : project.imageDirectory === "itau"
+      ? `/case-studies/${project.imageDirectory}/cover.jpg`
+      : project.imageDirectory
+        ? `/case-studies/${project.imageDirectory}/cover.png`
+        : undefined;
+
   return (
-    <article className={`project-card ${featured ? "featured-card" : ""}`}>
-      <Link
-        href={`/projects/${project.slug}`}
-        className={`project-visual ${project.slug === "duke-head-ta-data-structures" ? "teaching-visual" : ""}`}
-        aria-label={`Explore ${project.title}`}
-      >
-        {cover ? (
-          <Image
-            src={cover}
-            alt={`${project.title} project overview`}
-            fill
-            sizes={
-              featured
-                ? "(max-width: 760px) 100vw, 33vw"
-                : "(max-width: 760px) 100vw, 50vw"
-            }
+    <article className="group card relative overflow-hidden p-7 rounded-2xl border border-zinc-200 shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900">
+      {/* Visual proof: image slot if present */}
+      {coverSource ? (
+        <div className="mb-5 rounded-xl overflow-hidden border border-zinc-100 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/70 aspect-video flex items-center justify-center">
+          <img
+            src={coverSource}
+            alt={project.title + " screenshot"}
+            className="object-cover w-full 100vh transition-opacity duration-300 group-hover:opacity-90"
+            loading="lazy"
           />
-        ) : (
-          <div className="teaching-art" aria-hidden="true">
-            <span>DUKE / COMPUTER SCIENCE</span>
-            <strong>
-              Think it through.
-              <br />
-              <em>Then make it work.</em>
-            </strong>
-            <span>DATA STRUCTURES & ALGORITHMS</span>
-          </div>
-        )}
-        <span className="project-index">
-          {String(index + 1).padStart(2, "0")}
-        </span>
-      </Link>
-      <div className="project-copy">
-        <p className="eyebrow">
-          {project.category.split(" • ").slice(0, 2).join(" / ")}
-        </p>
-        <h3>
-          <Link href={`/projects/${project.slug}`}>{project.title}</Link>
-        </h3>
-        <p className="project-role">
-          {project.roleAndOrg} <span>· {project.timeline}</span>
-        </p>
-        <p className="project-summary">{project.summary}</p>
-        <div className="project-result">
-          <strong>{project.highlights[0]?.value}</strong>
-          <span>{project.highlights[0]?.label}</span>
         </div>
-        <Link className="text-link" href={`/projects/${project.slug}`}>
-          {project.slug === "duke-head-ta-data-structures"
-            ? "Inside the classroom"
-            : "Explore the work"}{" "}
-          ↗
-        </Link>
+      ) : null}
+
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <h3 className="text-xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 mb-1">
+            {project.title}
+          </h3>
+          <p className="text-sm text-zinc-600 dark:text-zinc-400">
+            {project.roleAndOrg}
+            <span className="mx-2 text-zinc-400">•</span>
+            {project.timeline}
+            <br />
+          </p>
+        </div>
+      </div>
+      <div>
+        <span className="shrink-0 rounded-full border border-zinc-200 bg-black/5 dark:bg-zinc-800/40 px-3 py-1 text-xs font-medium text-zinc-700 backdrop-blur dark:border-zinc-800/80 dark:text-zinc-200">
+            {project.category}
+            </span>
+      </div>
+
+      <p className="mt-5 text-base leading-7 text-zinc-700 dark:text-zinc-300">
+        {project.summary}
+      </p>
+
+      <div className="mt-5 flex flex-wrap gap-2">
+        {project.highlights.slice(0, 3).map((m) => (
+          <span
+            key={`${m.label}-${m.value}`}
+            className="rounded-full border border-zinc-200 bg-black/5 dark:bg-zinc-800/40 px-3 py-1 text-xs font-medium text-zinc-900 shadow-sm backdrop-blur dark:border-zinc-800 dark:text-zinc-50"
+          >
+            <span className="mr-1 font-semibold">{m.value}</span>
+            <span className="text-zinc-500 dark:text-zinc-400">{m.label}</span>
+          </span>
+        ))}
+      </div>
+
+      <ul className="mt-5 space-y-2">
+        {project.outcomes.slice(0, 2).map((line) => (
+          <li
+            key={line}
+            className="text-sm leading-6 text-zinc-700 dark:text-zinc-300"
+          >
+            • {line}
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-7 flex flex-wrap gap-2">
+        {project.liveUrl ? (
+          <>
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="btn border-zinc-200 bg-zinc-50 text-zinc-900 hover:bg-zinc-100 hover:border-zinc-300 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
+            >
+              GitHub repo
+            </a>
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn border-indigo-200 bg-indigo-950 text-indigo-900 font-semibold hover:bg-indigo-900 hover:border-indigo-300 dark:border-indigo-700 dark:bg-indigo-950 dark:text-indigo-100 dark:hover:bg-indigo-900"
+            >
+              {project.liveLabel ?? "Visit site"}
+              <span aria-hidden="true">→</span>
+            </a>
+          </>
+        ) : (
+          <>
+            <a
+              href={`/projects/${project.slug}`}
+              className="btn border-indigo-200 bg-indigo-950 text-indigo-900 font-semibold hover:bg-indigo-900 hover:border-indigo-300 dark:border-indigo-700 dark:bg-indigo-950 dark:text-indigo-100 dark:hover:bg-indigo-900"
+            >
+              Read case study
+              <span aria-hidden="true">→</span>
+            </a>
+
+            {project.githubUrl ? (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="btn border-zinc-200 bg-zinc-50 text-zinc-900 hover:bg-zinc-100 hover:border-zinc-300 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
+              >
+                GitHub repo
+              </a>
+            ) : null}
+          </>
+        )}
       </div>
     </article>
   );
 }
+

@@ -1,42 +1,42 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
-import "./portfolio.css";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-const geist = Geist({
-  subsets: ["latin"],
+import { Providers } from "@/components/Providers";
+
+const geistSans = Geist({
   variable: "--font-geist-sans",
-  display: "swap",
+  subsets: ["latin"],
 });
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rafaelrohr.vercel.app"),
-  title: {
-    default: "Rafael Rohr — Engineering, Mathematics & People",
-    template: "%s | Rafael Rohr",
-  },
+  title: "Rafael Rohr | Duke ECE",
   description:
-    "Brazilian engineer and Duke ECE & Mathematics student. Explore Rafael Rohr’s work in applied AI, software, hardware, product, and teaching.",
-  openGraph: {
-    type: "website",
-    siteName: "Rafael Rohr",
-    locale: "en_US",
-    title: "Rafael Rohr — Engineering, Mathematics & People",
-    description:
-      "Building technology that helps people do more. Software, hardware, finance, and teaching at Duke.",
-  },
+    "Brazilian Duke student studying Electrical & Computer Engineering and Mathematics, with a Finance minor. Builds reliable systems across software, hardware verification, and applied research.",
 };
+
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en" className={geist.variable}>
-      <body>
-        <a href="#main-content" className="skip-link">
-          Skip to content
-        </a>
-        <Navbar />
-        <main id="main-content">{children}</main>
-        <Footer />
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col bg-white text-zinc-900 selection:bg-zinc-200 dark:bg-black dark:text-zinc-50 dark:selection:bg-zinc-800">
+        <Providers>
+          <Navbar />
+          <main className="flex-1 bg-white dark:bg-zinc-900">{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

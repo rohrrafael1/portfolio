@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { awards } from "@/data/awards";
+import styles from "./awards.module.css";
 export const metadata: Metadata = {
   title: "Awards & Academic Recognition",
   description:
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 };
 export default function AwardsPage() {
   return (
-    <>
+    <div className={styles.page}>
       <section className="shell page-intro awards-intro">
         <Link href="/" className="text-link">
           ← Back to home
@@ -94,6 +95,6 @@ export default function AwardsPage() {
           View my resume ↗
         </a>
       </section>
-    </>
+    </div>
   );
 }

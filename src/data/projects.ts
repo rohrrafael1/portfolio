@@ -15,14 +15,16 @@ export type Project = {
   githubUrl?: string;
   imageDirectory?: string;
   coverImageUrl?: string;
+  liveUrl?: string;
+  liveLabel?: string;
 };
 
 export const projects: Project[] = [
   {
     slug: "itau-investment-intelligence",
     title: "Itaú: AI investment intelligence platform",
-    roleAndOrg: "AI & Software Engineering Intern · Itaú Unibanco",
-    timeline: "May 2026 – Aug 2026",
+    roleAndOrg: "AI & Data Engineering Intern · Itaú Unibanco",
+    timeline: "Experience",
     location: "Brazil",
     category: "Applied AI • Financial Technology • Data Platforms",
     summary:
@@ -64,8 +66,8 @@ export const projects: Project[] = [
     summary:
       "Built secure automation for chat attendants, using AI prompt engineering and a fine-tuned model integrated into a TypeScript API.",
     highlights: [
-      { label: "Annual savings", value: "R$1M" },
       { label: "Time saved", value: "49s / session" },
+      { label: "Annual impact", value: "~R$1M (~US$200K)" },
       { label: "Security focus", value: "Sensitive data handling" },
     ],
     outcomes: [
@@ -93,7 +95,7 @@ export const projects: Project[] = [
     slug: "riscv-dft-testability",
     title: "RISC-V (pipelined): Design for Testability (DFT)",
     roleAndOrg: "Independent Study Researcher",
-    timeline: "Jan 2026 – May 2026",
+    timeline: "Jan 2026 – Present",
     location: "Durham, NC (USA)",
     category: "Hardware Verification • Reliability Engineering",
     summary:
@@ -166,7 +168,7 @@ export const projects: Project[] = [
     location: "Durham, NC (USA)",
     category: "Applied AI Research • Product Discovery",
     summary:
-      "Developed a full-stack research platform using React, TypeScript, and Python to organize technical literature and help evaluate emerging technologies.",
+      "Helped design an AI-powered research workspace that streamlines founder ideation, opportunity evaluation, and venture planning, plus knowledge organization to make inputs actionable.",
     highlights: [
       {
         label: "Discovery focus",
@@ -179,8 +181,7 @@ export const projects: Project[] = [
       { label: "Healthcare direction", value: "MCAS exploration" },
     ],
     outcomes: [
-      "Developed a full-stack platform to organize technical literature and accelerate evaluation of emerging technologies.",
-      "Engineered backend and AI API workflows to analyze uploaded documents, synthesize insights, and generate context-specific commercialization opportunities.",
+      "Built research artifacts for an AI chatbot platform to support ideation, evaluation, and venture planning.",
       "Conducted market analysis and customer discovery to assess feasibility and translate qualitative feedback into engineering requirements.",
       "Explored MCAS and AI-assisted diagnosis to inform a faster, on-site evaluation workflow for cytopathology.",
     ],
@@ -190,10 +191,7 @@ export const projects: Project[] = [
       "Converted research findings into concrete feature and engineering requirements for a research workflow platform.",
     ],
     tools: [
-      "React",
-      "TypeScript",
-      "Python",
-      "AI API workflows",
+      "Conversational AI (workflow design)",
       "Knowledge organization",
       "Customer discovery",
       "Market analysis",
@@ -201,7 +199,7 @@ export const projects: Project[] = [
       "Product requirements",
     ],
     githubUrl: "https://github.com/alinadang/ResearchCustomAI",
-    imageDirectory: "cfci",
+      imageDirectory: "cfci",
   },
   {
     slug: "4arms-prosthesis-training",
@@ -235,42 +233,9 @@ export const projects: Project[] = [
     ],
     imageDirectory: "poster",
   },
-  {
-    slug: "duke-head-ta-data-structures",
-    title: "Duke: Making algorithms click",
-    roleAndOrg: "Head Teaching Assistant · Computer Science",
-    timeline: "Aug 2025 – Present",
-    location: "Durham, NC (USA)",
-    category: "Teaching • Computer Science • Communication",
-    summary:
-      "Help students reason through data structures and algorithms, develop better debugging habits, and turn a difficult problem into a clear approach.",
-    highlights: [
-      { value: "~30 students", label: "Weekly class discussions" },
-      { value: "Java", label: "Algorithms in practice" },
-      { value: "1:1 support", label: "Office hours" },
-    ],
-    outcomes: [
-      "Lead weekly class discussions for approximately 30 students, reinforcing data structures, algorithms, recursion, and asymptotic analysis.",
-      "Hold office hours to support assignments, teach debugging techniques, and guide students toward stronger problem-solving and coding practices.",
-      "Provide detailed grading feedback on abstract data types, trees, graphs, and introductory AI/ML algorithms implemented in Java.",
-    ],
-    approach: [
-      "Use discussion to help students work through the reasoning behind an algorithm, not just its implementation.",
-      "Work individually with students during office hours to connect debugging techniques with the concepts behind an assignment.",
-      "Give specific feedback on both the content and implementation of a solution.",
-    ],
-    tools: [
-      "Java",
-      "Data structures",
-      "Algorithms",
-      "Recursion",
-      "Asymptotic analysis",
-      "Debugging",
-      "Technical communication",
-    ],
-  },
 ];
 
 export function getProjectBySlug(slug: string) {
   return projects.find((p) => p.slug === slug) ?? null;
 }
+
