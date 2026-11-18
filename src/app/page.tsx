@@ -25,32 +25,63 @@ export default function Home() {
               Beyond the code
             </p>
             <p className="mt-4 text-lg leading-8 text-zinc-700 dark:text-zinc-300">
-              Football. Chess. Philosophy.<br />A notebook for poetry.
+              Outside engineering, I enjoy football, chess, philosophy, and
+              writing poetry.
             </p>
-            <p className="mt-6 text-sm font-semibold text-zinc-950 dark:text-zinc-50">Building community</p>
-            <p className="mt-3 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
-              As president of BRASA at Duke, I lead a 25-member team connecting Brazilian students through community, culture, and opportunities.
+            <p className="mt-6 text-sm font-semibold text-zinc-950 dark:text-zinc-50">
+              Languages
             </p>
-
             <div className="mt-6 flex flex-wrap gap-2">
-              {["Portuguese & English", "Spanish", "French"].map((r) => (
+              {profile.languages.map((language) => (
                 <span
-                  key={r}
+                  key={language.name}
                   className="rounded-full border border-zinc-200 bg-white/60 px-3 py-1 text-xs font-medium text-zinc-800 backdrop-blur dark:border-zinc-800 dark:bg-white/5 dark:text-zinc-100"
                 >
-                  {r}
+                  {language.name} · {language.level}
                 </span>
               ))}
             </div>
           </div>
         </div>
+        <div className="mt-8 rounded-2xl border border-zinc-200/70 bg-white/70 p-6 shadow-sm backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-900/20">
+          <p className="text-xs font-semibold tracking-widest text-zinc-500 dark:text-zinc-400">
+            LEADERSHIP & COMMUNITY
+          </p>
+          <h3 className="mt-3 text-xl font-semibold text-zinc-950 dark:text-zinc-50">
+            Leading BRASA at Duke
+          </h3>
+          <p className="mt-3 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
+            As president of Duke’s Brazilian Student Association, I lead a team
+            that connects students through culture, community, and professional
+            opportunities. Our events engage 100+ students, with partnerships
+            including EMS, Itaú, and StoneCo and alumni guests from Google,
+            Microsoft, and Bain.
+          </p>
+          <dl className="mt-6 grid grid-cols-2 gap-6 sm:grid-cols-4">
+            {[
+              { value: "$20K+", label: "Funding secured" },
+              { value: "25", label: "Team members" },
+              { value: "23%", label: "Membership growth" },
+              { value: "45K", label: "Monthly Instagram accesses" },
+            ].map((result) => (
+              <div key={result.label}>
+                <dt className="text-xs text-zinc-600 dark:text-zinc-400">
+                  {result.label}
+                </dt>
+                <dd className="mt-2 text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
+                  {result.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mt-6 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
+            Our chapter received BRASA’s Most Opportunity-Generating Chapter
+            award.
+          </p>
+        </div>
       </Section>
 
-      <Section
-        id="projects"
-        eyebrow="PROJECTS"
-        title="Impact, with numbers"
-      >
+      <Section id="projects" eyebrow="PROJECTS" title="Impact, with numbers">
         <ProjectGrid projects={projects} />
       </Section>
 
@@ -61,9 +92,9 @@ export default function Home() {
               Best way to reach me
             </p>
             <p className="mt-3 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
-              I enjoy working on technically challenging problems involving reliable
-              systems, hardware verification, and applied engineering. If you think
-              there’s a fit, feel free to reach out.
+              I enjoy working on technically challenging problems involving
+              reliable systems, hardware verification, and applied engineering.
+              If you think there’s a fit, feel free to reach out.
             </p>
 
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -89,7 +120,9 @@ export default function Home() {
             </p>
             <div className="mt-4 space-y-3 text-sm text-zinc-700 dark:text-zinc-300">
               <p>
-                <span className="font-semibold">Performance & reliability:</span>{" "}
+                <span className="font-semibold">
+                  Performance & reliability:
+                </span>{" "}
                 measurement, verification, and iterative improvements.
               </p>
               <p>

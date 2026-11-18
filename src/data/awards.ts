@@ -1,5 +1,29 @@
-// Transcribed from the current public/resume.pdf. Keep medal years and categories explicit.
+// Resume awards, supplemented by Rafael's additional medals and athletic honors.
+// Keep years and categories explicit; do not infer missing award dates.
 export const awards = [
+  {
+    organization:
+      "Brazilian Mathematics Olympiad for Private and Public Schools",
+    subject: "Mathematics",
+    entries: [{ medal: "Silver", year: "2022", category: "" }],
+  },
+  {
+    organization: "Brazilian Kangaroo Math Olympiad",
+    subject: "Mathematics",
+    entries: [
+      { medal: "Gold", year: "2021", category: "" },
+      { medal: "Gold", year: "2022", category: "" },
+      { medal: "Bronze", year: "2023", category: "" },
+    ],
+  },
+  {
+    organization: "São Paulo Chemistry Olympiad",
+    subject: "Chemistry",
+    entries: [
+      { medal: "Silver", year: "2022", category: "" },
+      { medal: "Bronze", year: "2023", category: "" },
+    ],
+  },
   {
     organization: "Biogenesis International Biomedicine Olympiad",
     subject: "Biomedicine",
@@ -52,5 +76,23 @@ export const awards = [
     subject: "Robotics",
     abbreviation: "OBR",
     entries: [{ medal: "Silver", year: "2022", category: "" }],
+  },
+] as const;
+
+export const athleticAwards = [
+  {
+    title: "School’s Outstanding Athlete",
+    organization: "School athletics",
+    years: ["2020", "2021", "2023"],
+  },
+  {
+    title: "Student-Athlete — Best Career",
+    organization: "School athletics",
+    years: [],
+  },
+  {
+    title: "Best Goalkeeper",
+    organization: "São Paulo school sports league",
+    years: ["2021"],
   },
 ] as const;

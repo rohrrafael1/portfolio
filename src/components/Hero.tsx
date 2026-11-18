@@ -1,16 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { profile } from "@/data/profile";
-import { type Metric, projects } from "@/data/projects";
 
 export function Hero() {
-  const topHighlights: Metric[] = [
-    projects[0]?.highlights?.[0],
-    projects[0]?.highlights?.[1],
-    projects[1]?.highlights?.[0],
-    projects[3]?.highlights?.[1],
-  ].filter((m): m is Metric => Boolean(m));
-
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0 -z-10">
@@ -21,8 +13,8 @@ export function Hero() {
       <div className="mx-auto max-w-5xl px-6 pb-10 pt-16 sm:pb-16 sm:pt-24">
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <p className="mb-2 text-xs font-semibold tracking-widest text-zinc-500 dark:text-zinc-400">
-              {profile.titleLine} • {profile.interests.join(" • ")}
+            <p className="mb-3 max-w-2xl text-xs leading-6 text-zinc-500 dark:text-zinc-400">
+              {profile.titleLine}
             </p>
 
             <h1 className="h1 relative mb-6 text-zinc-950 dark:text-zinc-50">
@@ -45,7 +37,7 @@ export function Hero() {
           {profile.headline}
         </p>
 
-        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
           <a
             href={`mailto:${profile.email}`}
             className="btn border-zinc-200 bg-zinc-50 text-zinc-900 hover:bg-indigo-50 hover:border-indigo-200 hover:text-indigo-900 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-indigo-950 dark:hover:text-indigo-200"
@@ -65,26 +57,30 @@ export function Hero() {
           >
             Download resume
           </Link>
-        </div>
-
-        <div className="mt-10 flex flex-wrap items-center gap-2">
-          {topHighlights.map((m, idx) => (
-            <span
-              key={`${m?.label}-${idx}`}
-              className="rounded-full border border-zinc-200 bg-white/70 px-3 py-1 text-xs font-medium text-zinc-900 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-800/40 dark:text-zinc-50"
-            >
-              {m.value}
-              <span className="ml-2 text-zinc-500 dark:text-zinc-400">{m.label}</span>
-            </span>
-          ))}
           <a
             href={`https://${profile.linkedIn}`}
             target="_blank"
             rel="noreferrer"
-            className="ml-2 text-sm text-zinc-700 transition-colors hover:text-indigo-700 dark:text-zinc-300 dark:hover:text-indigo-300"
+            className="btn border-zinc-200 bg-zinc-50 text-zinc-900 hover:bg-zinc-100 hover:border-zinc-300 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
           >
             LinkedIn
           </a>
+        </div>
+
+        <div className="mt-8">
+          <p className="text-xs font-semibold tracking-widest text-zinc-500 dark:text-zinc-400">
+            SKILLS & TECHNOLOGIES
+          </p>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            {profile.skills.map((skill) => (
+              <span
+                key={skill}
+                className="rounded-full border border-zinc-200 bg-white/70 px-3 py-1 text-xs font-medium text-zinc-900 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-800/40 dark:text-zinc-50"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
         </div>
 
         {/* Subtle underline animation keyframes */}
@@ -98,4 +94,3 @@ export function Hero() {
     </section>
   );
 }
-

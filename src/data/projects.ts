@@ -24,7 +24,7 @@ export const projects: Project[] = [
     slug: "itau-investment-intelligence",
     title: "Itaú: AI investment intelligence platform",
     roleAndOrg: "AI & Data Engineering Intern · Itaú Unibanco",
-    timeline: "Experience",
+    timeline: "May 2026 – Aug 2026",
     location: "Brazil",
     category: "Applied AI • Financial Technology • Data Platforms",
     summary:
@@ -199,7 +199,7 @@ export const projects: Project[] = [
       "Product requirements",
     ],
     githubUrl: "https://github.com/alinadang/ResearchCustomAI",
-      imageDirectory: "cfci",
+    imageDirectory: "cfci",
   },
   {
     slug: "4arms-prosthesis-training",
@@ -238,4 +238,3 @@ export const projects: Project[] = [
 export function getProjectBySlug(slug: string) {
   return projects.find((p) => p.slug === slug) ?? null;
 }
-
