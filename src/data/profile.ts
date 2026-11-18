@@ -61,7 +61,7 @@ export const profile: Profile = {
     "Salesforce CRM",
     "Tessent Shell",
     "Datadog",
-    "Gem",
+    "Gem 5",
   ],
   languages: [
     { name: "Portuguese", level: "Fluent" },

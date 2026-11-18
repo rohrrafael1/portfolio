@@ -67,26 +67,20 @@ export function Hero() {
           </a>
         </div>
 
-        <div className="mt-8 space-y-5">
+        <div className="mt-8 space-y-2">
           {[
             { label: "Skills", items: profile.skills },
             { label: "Technologies", items: profile.technologies },
           ].map((group) => (
-            <div key={group.label}>
-              <p className="text-xs font-semibold tracking-widest text-zinc-500 dark:text-zinc-400">
-                {group.label.toUpperCase()}
-              </p>
-              <div className="mt-3 flex flex-wrap items-center gap-2">
-                {group.items.map((skill) => (
-                  <span
-                    key={skill}
-                    className="rounded-full border border-zinc-200 bg-white/70 px-3 py-1 text-xs font-medium text-zinc-900 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-800/40 dark:text-zinc-50"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
+            <p
+              key={group.label}
+              className="text-xs leading-6 text-zinc-700 dark:text-zinc-300"
+            >
+              <span className="font-semibold text-zinc-900 dark:text-zinc-100">
+                {group.label}:
+              </span>{" "}
+              {group.items.join(", ")}
+            </p>
           ))}
         </div>
 
