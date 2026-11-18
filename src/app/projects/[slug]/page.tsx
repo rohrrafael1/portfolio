@@ -1,124 +1,124 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Section } from "@/components/Section";
 import { CaseStudyGallery } from "@/components/CaseStudyGallery";
+import { PersonalProjects } from "@/components/PersonalProjects";
 import { getProjectBySlug, projects } from "@/data/projects";
-
+type Props = { params: Promise<{ slug: string }> };
 export function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }));
+  return projects.map((project) => ({ slug: project.slug }));
 }
-
-export default async function ProjectDetailPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-
   const project = getProjectBySlug(slug);
   if (!project) notFound();
-
+  return {
+    title: project.title,
+    description: project.summary,
+    openGraph: {
+      title: project.title,
+      description: project.summary,
+      url: `/projects/${project.slug}`,
+    },
+  };
+}
+export default async function ProjectDetailPage({ params }: Props) {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
+  if (!project) notFound();
   return (
-    <div className="bg-white dark:bg-zinc-900">
-      <div className="mx-auto max-w-5xl px-4 pt-10">
-        <div className="flex items-center justify-between gap-4">
-          <div className="flex flex-wrap items-center gap-3">
-            <Link
-              href="/#projects"
-              className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-4 py-2 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
-            >
-              ← Back to projects
-            </Link>
-
-            {project.githubUrl ? (
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-4 py-2 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
-              >
-                GitHub repo
-              </a>
-            ) : null}
-          </div>
-
-          <span className="shrink-0 rounded-full border border-zinc-200 bg-white/60 px-3 py-1 text-xs font-medium text-zinc-700 backdrop-blur dark:border-zinc-800 dark:bg-zinc-800/40 dark:text-zinc-200">
-            {project.category}
-          </span>
+    <>
+      <section className="page-intro shell">
+        <Link className="text-link" href="/#work">
+          ← Back to selected work
+        </Link>
+        <p className="eyebrow">{project.category}</p>
+        <h1>{project.title}</h1>
+        <div className="detail-meta">
+          <span>{project.roleAndOrg}</span>
+          <span> / {project.timeline}</span>
+          <span> / {project.location}</span>
         </div>
-
-        <div className="mt-8">
-          <h1 className="text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 sm:text-4xl">
-            {project.title}
-          </h1>
-          <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-            {project.roleAndOrg} <span className="mx-2 text-zinc-300">•</span>{" "}
-            {project.timeline} <span className="mx-2 text-zinc-300">•</span>{" "}
-            {project.location}
-          </p>
-        </div>
-
-        <p className="mt-6 max-w-3xl text-base leading-7 text-zinc-700 dark:text-zinc-300">
-          {project.summary}
-        </p>
-
-        <div className="mt-6 flex flex-wrap gap-2">
-          {project.highlights.map((m) => (
-            <span
-              key={`${m.label}-${m.value}`}
-              className="rounded-full border border-zinc-200 bg-white/70 px-3 py-1 text-xs font-medium text-zinc-800 dark:border-zinc-800 dark:bg-zinc-800/40 dark:text-zinc-100"
-            >
-              <span className="font-semibold">{m.value}</span>{" "}
-              <span className="ml-2 text-zinc-500 dark:text-zinc-400">
-                {m.label}
-              </span>
-            </span>
+        <p className="lead">{project.summary}</p>
+        <div className="detail-highlights">
+          {project.highlights.map((metric) => (
+            <div key={metric.label}>
+              <strong>{metric.value}</strong>
+              <span>{metric.label}</span>
+            </div>
           ))}
         </div>
-      </div>
-
+        {project.githubUrl && (
+          <div className="actions" style={{ marginTop: 24 }}>
+            <a
+              className="button"
+              href={project.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Explore the source ↗
+            </a>
+          </div>
+        )}
+      </section>
+      <Section>
+        <div className="detail-columns">
+          <div>
+            <p className="eyebrow">THE WORK</p>
+            <h2>
+              {slug === "duke-head-ta-data-structures"
+                ? "Inside the classroom"
+                : "What I contributed"}
+            </h2>
+            <ul>
+              {project.outcomes.map((outcome) => (
+                <li key={outcome}>{outcome}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="eyebrow">THE APPROACH</p>
+            <h2>
+              {slug === "duke-head-ta-data-structures"
+                ? "Helping ideas click"
+                : "How it came together"}
+            </h2>
+            <ul>
+              {project.approach.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="tools-list" aria-label="Tools and areas">
+          {project.tools.map((tool) => (
+            <span key={tool}>{tool}</span>
+          ))}
+        </div>
+      </Section>
       {project.imageDirectory && (
-        <Section eyebrow="VISUALS" title="Project materials">
-          <CaseStudyGallery imageDirectory={project.imageDirectory} />
-        </Section>
+        <div className="supporting-section">
+          <Section eyebrow="A CLOSER LOOK" title="From the project notebook">
+            <CaseStudyGallery
+              key={project.slug}
+              imageDirectory={project.imageDirectory}
+              title={project.title}
+            />
+          </Section>
+        </div>
       )}
-
-      <Section eyebrow="RESULTS" title="What changed">
-        <ul className="space-y-3 text-base text-zinc-700 dark:text-zinc-300">
-          {project.outcomes.map((o) => (
-            <li key={o} className="leading-7">
-              • {o}
-            </li>
-          ))}
-        </ul>
-      </Section>
-
-      <Section eyebrow="APPROACH" title="How I delivered it">
-        <ul className="space-y-3 text-base text-zinc-700 dark:text-zinc-300">
-          {project.approach.map((a) => (
-            <li key={a} className="leading-7">
-              • {a}
-            </li>
-          ))}
-        </ul>
-
-        <div className="mt-8">
-          <p className="text-sm font-semibold text-zinc-950 dark:text-zinc-50">
-            Tools & stack
-          </p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {project.tools.map((t) => (
-              <span
-                key={t}
-                className="rounded-full border border-zinc-200 bg-white/60 px-3 py-1 text-xs font-medium text-zinc-800 dark:border-zinc-800 dark:bg-zinc-800/30 dark:text-zinc-100"
-              >
-                {t}
-              </span>
-            ))}
-          </div>
+      <Section eyebrow="KEEP EXPLORING" title="Built for the fun of it.">
+        <PersonalProjects compact />
+        <div className="detail-next">
+          <Link className="text-link" href="/#more-work">
+            More projects & research ↗
+          </Link>
+          <Link className="text-link" href="/#contact">
+            Let’s connect ↗
+          </Link>
         </div>
       </Section>
-    </div>
+    </>
   );
 }
-

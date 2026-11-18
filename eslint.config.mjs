@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Preserved standalone projects use script-tag globals and inline HTML handlers.
+    "public/games/**",
+    "public/experiments/**",
   ]),
 ]);
 

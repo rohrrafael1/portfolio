@@ -1,131 +1,134 @@
+import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { ProjectGrid } from "@/components/ProjectGrid";
 import { Section } from "@/components/Section";
+import { PersonalProjects } from "@/components/PersonalProjects";
 import { projects } from "@/data/projects";
 import { profile } from "@/data/profile";
-
+const featuredSlugs = [
+  "itau-investment-intelligence",
+  "stoneco-payments-ai-automation",
+  "duke-head-ta-data-structures",
+];
 export default function Home() {
+  const featured = featuredSlugs.map(
+    (slug) => projects.find((project) => project.slug === slug)!,
+  );
+  const more = projects.filter(
+    (project) => !featuredSlugs.includes(project.slug),
+  );
   return (
-    <div className="bg-white dark:bg-zinc-900">
+    <>
       <Hero />
-
-      <Section id="about" eyebrow="ABOUT" title="Engineering approach">
-        <div className="grid gap-8 md:grid-cols-2 items-start">
-          <div className="space-y-4">
-            <p className="text-base leading-7 text-zinc-700 dark:text-zinc-300">
-              {profile.summary[0]}
-            </p>
-            <p className="text-base leading-7 text-zinc-700 dark:text-zinc-300">
-              {profile.summary[1]}
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-zinc-200/70 bg-white/70 p-6 shadow-sm backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-900/20">
-            <p className="text-sm font-semibold text-zinc-950 dark:text-zinc-50">
-              Strengths that show up in my work
-            </p>
-            <ul className="mt-4 space-y-3 text-sm text-zinc-700 dark:text-zinc-300">
-              <li>
-                <span className="font-semibold">Measurable engineering impact:</span>{" "}
-                quantifiable improvements, short feedback loops.
-              </li>
-              <li>
-                <span className="font-semibold">Disciplined engineering:</span>{" "}
-                verification-first and careful debugging.
-              </li>
-              <li>
-                <span className="font-semibold">Honest communication:</span>{" "}
-                clear tradeoffs and accurate status updates.
-              </li>
-              <li>
-                <span className="font-semibold">Relentless follow-through:</span>{" "}
-                ship, test, and refine until it holds up in practice.
-              </li>
-            </ul>
-
-            <div className="mt-6 flex flex-wrap gap-2">
-              {profile.targetRoles.map((r) => (
-                <span
-                  key={r}
-                  className="rounded-full border border-zinc-200 bg-white/60 px-3 py-1 text-xs font-medium text-zinc-800 backdrop-blur dark:border-zinc-800 dark:bg-white/5 dark:text-zinc-100"
-                >
-                  {r}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </Section>
-
       <Section
-        id="projects"
-        eyebrow="PROJECTS"
-        title="Impact, with numbers"
+        id="work"
+        eyebrow="01 / SELECTED EXPERIENCE"
+        title="Different problems. The same curiosity."
       >
-        <ProjectGrid projects={projects} />
+        <span id="projects" className="anchor-target" />
+        <p className="section-intro">
+          From investment intelligence to the classroom, I like turning complex
+          problems into something useful.
+        </p>
+        <ProjectGrid projects={featured} featured />
       </Section>
-
-      <Section id="contact" eyebrow="CONTACT" title="Let’s connect">
-        <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-2xl border border-zinc-200/70 bg-white/70 p-6 shadow-sm backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-900/20">
-            <p className="text-sm font-semibold text-zinc-950 dark:text-zinc-50">
-              Best way to reach me
-            </p>
-            <p className="mt-3 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
-              I enjoy working on technically challenging problems involving reliable
-              systems, hardware verification, and applied engineering. If you think
-              there’s a fit, feel free to reach out.
-            </p>
-
-            <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <a
-                href={`mailto:${profile.email}`}
-                className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-zinc-50 px-6 py-2.5 text-sm font-medium text-zinc-900 shadow-sm transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:hover:bg-zinc-800"
-              >
-                Email me
-              </a>
-              <a
-                href={profile.resumePath}
-                download
-                className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-zinc-50 px-6 py-2.5 text-sm font-medium text-zinc-900 shadow-sm transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:hover:bg-zinc-800"
-              >
-                Download resume
-              </a>
+      <div className="about-band">
+        <Section
+          id="about"
+          eyebrow="02 / A LITTLE ABOUT ME"
+          title="An engineer, with a few other sides."
+        >
+          <div className="about-grid">
+            <div className="about-story">
+              <p>
+                I’m Brazilian, studying Electrical & Computer Engineering and
+                Mathematics at Duke, with a minor in Finance. I’m interested in
+                what happens where disciplines meet: how a model becomes a
+                product, how code moves a machine, and how an explanation makes
+                a difficult idea click.
+              </p>
+              <p>
+                I’ve worked across AI and software engineering at Itaú and
+                StoneCo, built FPGA systems, and taught data structures and
+                algorithms. Each has shaped the way I approach a problem:
+                understand it carefully, build something concrete, and keep
+                learning from the people around me.
+              </p>
+              <Link href="/awards" className="text-link">
+                Where that curiosity started ↗
+              </Link>
+            </div>
+            <div className="personal-notes">
+              <div>
+                <p className="eyebrow">BEYOND THE CODE</p>
+                <p>
+                  Football. Chess. Philosophy.
+                  <br />A notebook for poetry.
+                </p>
+              </div>
+              <div>
+                <p className="eyebrow">BUILDING COMMUNITY</p>
+                <p>
+                  As president of BRASA at Duke, I lead a 25-member team
+                  connecting Brazilian students through community, culture, and
+                  opportunities.
+                </p>
+              </div>
+              <div className="language-note">
+                Portuguese & English / Spanish / French
+              </div>
             </div>
           </div>
-
-          <div className="rounded-2xl border border-zinc-200/70 bg-white/70 p-6 shadow-sm backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-900/20">
-            <p className="text-sm font-semibold text-zinc-950 dark:text-zinc-50">
-              Current focus
+        </Section>
+      </div>
+      <Section
+        id="more-work"
+        eyebrow="03 / PROJECTS & RESEARCH"
+        title="From an idea to something real."
+      >
+        <p className="section-intro">
+          Processors, robotics, research tools, and a little hands-on
+          experimentation.
+        </p>
+        <ProjectGrid projects={more} />
+      </Section>
+      <Section
+        id="personal-projects"
+        eyebrow="04 / BUILT FOR THE FUN OF IT"
+        title="A place to play. A reason to learn."
+      >
+        <PersonalProjects />
+      </Section>
+      <section id="contact" className="contact-section shell">
+        <p className="eyebrow">05 / LET’S CONNECT</p>
+        <div className="contact-grid">
+          <h2>
+            Good things start
+            <br />
+            with a <em>conversation.</em>
+          </h2>
+          <div>
+            <p>
+              Working on an interesting problem? Have a question about my work?
+              I’d love to hear from you.
             </p>
-            <div className="mt-4 space-y-3 text-sm text-zinc-700 dark:text-zinc-300">
-              <p>
-                <span className="font-semibold">Performance & reliability:</span>{" "}
-                measurement, verification, and iterative improvements.
-              </p>
-              <p>
-                <span className="font-semibold">Hardware reliability:</span>{" "}
-                DFT, verification, and systems that behave predictably.
-              </p>
-              <p>
-                <span className="font-semibold">Applied research:</span>{" "}
-                building tools from real needs and validating feasibility.
-              </p>
-            </div>
-
-            <div className="mt-6">
-              <a
-                href={`https://${profile.linkedIn}`}
-                target="_blank"
-                rel="noreferrer"
-                className="text-sm font-medium text-zinc-700 transition-colors hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white"
-              >
-                Connect on LinkedIn →
+            <a className="contact-email" href={`mailto:${profile.email}`}>
+              {profile.email} ↗
+            </a>
+            <div className="contact-links">
+              <a href={profile.linkedIn} target="_blank" rel="noreferrer">
+                LinkedIn ↗
+              </a>
+              <a href={profile.github} target="_blank" rel="noreferrer">
+                GitHub ↗
+              </a>
+              <a href={profile.resumePath} target="_blank" rel="noreferrer">
+                Resume ↗
               </a>
             </div>
           </div>
         </div>
-      </Section>
-    </div>
+      </section>
+    </>
   );
 }

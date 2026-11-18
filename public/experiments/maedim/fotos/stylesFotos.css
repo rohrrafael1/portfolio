@@ -1,0 +1,143 @@
+body {
+    background-color: #000000;
+    background-image: url("../assets/back.jpg");
+}
+
+#bar {
+    color: #FFFFFF;
+    background-image: url("../assets/back.jpg");
+
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #FFFFFF;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #FF6C00;
+}
+
+.navbar-light .navbar-brand {
+    color: #FFFFFF;
+}
+
+.navbar-light .navbar-brand:hover {
+    color: #FF6C00;
+}
+
+
+
+.carousel-container {
+    width: 1100px;
+    height: 450px;
+    position: relative;
+    margin: auto;
+
+}
+
+
+
+
+
+button {
+    background-color: #000000;
+    margin: #FF6C00;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+}
+
+button:hover {
+    background-color: #FF6C00;
+    border: #FF6C00;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.navigation .prev {
+    position: absolute;
+    z-index: 10;
+    font-size: 25px;
+    top: 50%;
+    left: -0;
+    font-weight: 700;
+}
+
+.navigation .next {
+    left: 70vw;
+    position: absolute;
+    font-size: 25px;
+    z-index: 10;
+    top: 50%;
+}
+
+.navigation .nav-btn {
+    background: #FF6C00;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.navigation .nav-btn:hover {
+    background: #FFFFFF;
+}
+
+.carousel {
+    margin-top: 20px;
+    margin-left: 0;
+    justify-content: center;
+    transition: all 0.3s ease;
+    width: 90vw;
+    left:5vw;
+
+}
+
+.carousel img {
+
+    width: 62.5vw;
+    transition: all 0.5s ease;
+    border: 8px solid black;
+    text-align: justify;
+    align-items: justify;
+    vertical-align: left;
+}
+
+.item {
+    text-align: left;
+    justify-content: left;
+    position: relative;
+    display: none;
+    align-items: left;
+}
+
+.main {
+    display: flex;
+}
+
+
+.caption {
+    position: absolute;
+    bottom: 0;
+    width: 62.5vw;
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    background: #000000;
+    height: 35px;
+}

@@ -1,34 +1,10 @@
-export type Profile = {
-  name: string;
-  titleLine: string;
-  headline: string;
-  summary: string[];
-  interests: string[];
-  targetRoles: string[];
-  location: string;
-  email: string;
-  linkedIn: string;
-  resumePath: string;
-};
-
-export const profile: Profile = {
+export const profile = {
   name: "Rafael Rohr",
-  titleLine: "Brazilian ECE student at Duke building reliable systems across hardware verification, embedded systems, applied AI, and finance.",
-  headline:
-    "Electrical & Computer Engineering student building reliable systems across hardware verification, embedded systems, and applied AI passionate about the idea that technology empowers humankind.",
-  summary: [
-    "I’m a rising junior at Duke studying Electrical & Computer Engineering, with minors in Finance and Math. I care about building systems that work reliably in practice, from hardware verification and embedded systems to scalable software tools. I enjoy solving technical problems, communicating clearly, and improving systems through careful iteration.",
-  ],
-  interests: ["Systems reliability", "Hardware verification", "Applied research", "Finance & mathematics"],
-  targetRoles: [
-    "Secure software engineering",
-    "Hardware verification & reliability",
-    "Embedded systems",
-    "Applied research & product discovery",
-  ],
-  location: "Durham, NC (USA)",
-  email: "rafael.sersonrohr@duke.edu",
-  linkedIn: "linkedin.com/in/rohrrafael",
+  headline: "Building technology that helps people do more.",
+  education: "Electrical & Computer Engineering + Mathematics",
+  university: "Duke University · Class of 2028",
+  email: "rafael.rohr@duke.edu",
+  linkedIn: "https://www.linkedin.com/in/rohrrafael/",
+  github: "https://github.com/rohrrafael1",
   resumePath: "/resume.pdf",
 };
-

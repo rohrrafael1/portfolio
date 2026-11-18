@@ -1,69 +1,79 @@
 "use client";
-
 import Image from "next/image";
 import { useState } from "react";
-
+const counts: Record<string, number> = {
+  "ece350-final-project": 11,
+  "siemens-presentation": 31,
+  poster: 1,
+  stone: 1,
+  cfci: 1,
+  itau: 1,
+};
 export function CaseStudyGallery({
   imageDirectory,
+  title,
 }: {
   imageDirectory: string;
+  title: string;
 }) {
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  // Map image directories to their page counts
-  const imageCounts: Record<string, number> = {
-    "ece350-final-project": 11,
-    "siemens-presentation": 31,
-    "poster": 1,
-    "stone": 1,
-    "cfci": 1,
-    "itau": 1,
-  };
-
-  const pageCount = imageCounts[imageDirectory] || 0;
-  const images = Array.from({ length: pageCount }, (_, i) => ({
-    src: `/case-studies/${imageDirectory}/page-${i + 1}.png`,
-    alt: `${imageDirectory} - page ${i + 1}`,
-  }));
-
-  if (!images.length) return null;
-
+  const [selected, setSelected] = useState(0);
+  const count = counts[imageDirectory] ?? 0;
+  if (!count) return null;
   return (
-    <div className="space-y-4">
-      <div className="relative overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/30">
-        <div className="relative h-96 sm:h-[500px] w-full">
-          <Image
-            src={images[selectedIndex].src}
-            alt={images[selectedIndex].alt}
-            fill
-            className="object-contain"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 800px"
-          />
-        </div>
+    <div className="gallery">
+      <div className="gallery-main">
+        <Image
+          src={`/case-studies/${imageDirectory}/page-${selected + 1}.png`}
+          alt={`${title} — supporting material, page ${selected + 1}`}
+          fill
+          sizes="(max-width: 760px) 95vw, 1200px"
+        />
       </div>
-
-      {images.length > 1 && (
-        <div className="flex gap-2 overflow-x-auto pb-2">
-          {images.map((img, index) => (
+      <div className="gallery-caption">
+        <p className="gallery-counter" aria-live="polite">
+          {title} · Page {selected + 1} of {count}
+        </p>
+        {count > 1 && (
+          <div className="gallery-controls">
             <button
-              key={index}
-              onClick={() => setSelectedIndex(index)}
-              className={`relative h-16 w-20 sm:h-20 sm:w-28 shrink-0 rounded-lg overflow-hidden border-2 transition-colors ${
-                selectedIndex === index
-                  ? "border-zinc-900 dark:border-zinc-100"
-                  : "border-zinc-300 dark:border-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-600"
-              }`}
+              type="button"
+              disabled={selected === 0}
+              onClick={() => setSelected(selected - 1)}
+              aria-label="Previous page"
             >
-              <Image
-                src={img.src}
-                alt={`Thumbnail ${index + 1}`}
-                fill
-                className="object-contain"
-                sizes="(max-width: 640px) 100vw, 112px"
-              />
+              ← Previous
             </button>
-          ))}
-        </div>
+            <button
+              type="button"
+              disabled={selected === count - 1}
+              onClick={() => setSelected(selected + 1)}
+              aria-label="Next page"
+            >
+              Next →
+            </button>
+          </div>
+        )}
+      </div>
+      {count > 1 && (
+        <details>
+          <summary className="text-link">Choose a page</summary>
+          <div
+            className="gallery-thumbnails"
+            aria-label="Supporting material pages"
+          >
+            {Array.from({ length: count }, (_, i) => (
+              <button
+                type="button"
+                key={i}
+                aria-label={`Show page ${i + 1}`}
+                aria-pressed={selected === i}
+                onClick={() => setSelected(i)}
+              >
+                {i + 1}
+              </button>
+            ))}
+          </div>
+        </details>
       )}
     </div>
   );
