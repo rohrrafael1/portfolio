@@ -86,7 +86,7 @@ export const athleticAwards = [
     years: ["2020", "2021", "2023"],
   },
   {
-    title: "Student-Athlete — Best Career",
+    title: "Student-Athlete: Best Career",
     organization: "School athletics",
     years: [],
   },

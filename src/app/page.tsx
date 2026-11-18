@@ -43,7 +43,14 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="mt-8 rounded-2xl border border-zinc-200/70 bg-white/70 p-6 shadow-sm backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-900/20">
+      </Section>
+
+      <Section id="projects" eyebrow="PROJECTS" title="Impact, with numbers">
+        <ProjectGrid projects={projects} />
+      </Section>
+
+      <Section id="leadership">
+        <div className="rounded-2xl border border-zinc-200/70 bg-white/70 p-6 shadow-sm backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-900/20">
           <p className="text-xs font-semibold tracking-widest text-zinc-500 dark:text-zinc-400">
             LEADERSHIP & COMMUNITY
           </p>
@@ -79,10 +86,6 @@ export default function Home() {
             award.
           </p>
         </div>
-      </Section>
-
-      <Section id="projects" eyebrow="PROJECTS" title="Impact, with numbers">
-        <ProjectGrid projects={projects} />
       </Section>
 
       <Section id="contact" eyebrow="CONTACT" title="Let’s connect">

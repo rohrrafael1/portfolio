@@ -9,7 +9,7 @@ const formulaOneGameCard: Project = {
   location: "Self-taught",
   category: "HTML • CSS • JavaScript",
   summary:
-    "My first ever coding project — a Formula 1-inspired browser game built while learning HTML, CSS, and JavaScript from scratch.",
+    "My first ever coding project: a Formula 1-inspired browser game built while learning HTML, CSS, and JavaScript from scratch.",
   highlights: [
     { label: "Project type", value: "Browser game" },
     { label: "Stack", value: "HTML/CSS/JS" },
@@ -37,9 +37,17 @@ const maedimCard: Project = {
   timeline: "Mars education platform",
   location: "Portuguese-language website",
   category: "HTML • CSS • JavaScript",
-  summary: "An interactive platform about Mars, bringing together facts, images, videos, a game, and simulations to explore the red planet.",
-  highlights: [{ label: "Focus", value: "Mars exploration" }, { label: "Stack", value: "HTML/CSS/JS" }, { label: "Language", value: "Portuguese" }],
-  outcomes: ["Built an educational website with multiple ways to discover Mars.", "Combined interactive content, a game, and simulations in one platform."],
+  summary:
+    "An interactive platform about Mars, bringing together facts, images, videos, a game, and simulations to explore the red planet.",
+  highlights: [
+    { label: "Focus", value: "Mars exploration" },
+    { label: "Stack", value: "HTML/CSS/JS" },
+    { label: "Language", value: "Portuguese" },
+  ],
+  outcomes: [
+    "Built an educational website with multiple ways to discover Mars.",
+    "Combined interactive content, a game, and simulations in one platform.",
+  ],
   approach: [],
   tools: ["HTML", "CSS", "JavaScript"],
   coverImageUrl: "/experiments/maedim/fotos/assets/Marte.png",
@@ -56,9 +64,11 @@ export function ProjectGrid({ projects }: { projects: Project[] }) {
           <ProjectCard key={p.slug} project={p} />
         ))}
         <ProjectCard key={maedimCard.slug} project={maedimCard} />
-        <ProjectCard key={formulaOneGameCard.slug} project={formulaOneGameCard} />
+        <ProjectCard
+          key={formulaOneGameCard.slug}
+          project={formulaOneGameCard}
+        />
       </div>
     </div>
   );
 }
-
